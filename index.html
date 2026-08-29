@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Xvsoft</title>
 
 <style>
@@ -18,158 +17,241 @@ body {
   background: #111214;
   color: white;
   font-family: Arial, sans-serif;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
-  padding: 20px;
+  padding: 18px;
 }
 
-/* =========================
-   LOADING
-========================= */
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
 
 #loading {
   color: #aaa;
   font-size: 17px;
 }
 
-/* =========================
-   ERROR
-========================= */
-
 #error {
   display: none;
-
-  max-width: 420px;
-
-  padding: 22px;
-
+  width: 100%;
+  max-width: 430px;
   background: #1e1f22;
-  border-radius: 18px;
-
   color: #ff7777;
-
+  padding: 22px;
+  border-radius: 20px;
   text-align: center;
+  word-break: break-word;
 }
 
-/* =========================
+/* =========================================
+   PANELS
+========================================= */
+
+.panel {
+  display: none;
+  width: 100%;
+  max-width: 460px;
+  background: #1e1f22;
+  border-radius: 24px;
+  padding: 26px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.55);
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #999;
+  line-height: 1.5;
+  margin-bottom: 22px;
+}
+
+label {
+  display: block;
+  color: #b8bbc5;
+  font-size: .85rem;
+  margin: 14px 0 6px;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border: 1px solid #3a3d45;
+  background: #2b2d31;
+  color: white;
+  padding: 11px 13px;
+  border-radius: 12px;
+  outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  border-color: #5865F2;
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.primary {
+  width: 100%;
+  border: 0;
+  background: #5865F2;
+  color: white;
+  padding: 13px;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.primary:hover {
+  background: #4752c4;
+}
+
+.primary:disabled {
+  opacity: .6;
+  cursor: wait;
+}
+
+.secondary {
+  width: 100%;
+  border: 0;
+  background: #3a3d45;
+  color: white;
+  padding: 13px;
+  border-radius: 30px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+.small-error {
+  color: #ff7777;
+  font-size: .85rem;
+  margin-top: 10px;
+  min-height: 18px;
+}
+
+/* =========================================
+   AUTH
+========================================= */
+
+.tabs {
+  display: flex;
+  gap: 5px;
+  padding: 4px;
+  background: #151619;
+  border-radius: 14px;
+  margin-bottom: 20px;
+}
+
+.tabs button {
+  flex: 1;
+  border: 0;
+  background: transparent;
+  color: #999;
+  padding: 10px;
+  border-radius: 10px;
+  font-weight: 600;
+}
+
+.tabs button.active {
+  background: #5865F2;
+  color: white;
+}
+
+/* =========================================
    PROFILE
-========================= */
+========================================= */
 
 .profile {
   display: none;
-
   width: 100%;
   max-width: 400px;
-
-  background:
-    linear-gradient(280deg, #EEBD89, #D13ABD);
-
   border-radius: 24px;
-
   overflow: hidden;
-
   text-align: center;
-
-  box-shadow:
-    0 15px 40px rgba(0,0,0,.55);
-
-  position: relative;
+  box-shadow: 0 15px 40px rgba(0,0,0,.55);
 }
 
 .banner {
-  height: 200px;
-
-  background:
-    #2b2d31
-    center / cover
-    no-repeat;
-
+  height: 0;
+  background: none center / cover no-repeat;
   position: relative;
+}
+
+.banner.has-banner {
+  height: 200px;
 }
 
 .pfp {
   width: 110px;
   height: 110px;
-
   border-radius: 50%;
-
   border: 5px solid #1e1f22;
-
   position: absolute;
-
   left: 50%;
   bottom: -55px;
-
   transform: translateX(-50%);
-
   background: #2b2d31;
-
   object-fit: cover;
+}
+
+.banner:not(.has-banner) .pfp {
+  top: 20px;
+  bottom: auto;
 }
 
 .content {
   padding: 70px 20px 25px;
 }
 
+.banner:not(.has-banner) + .content {
+  padding-top: 145px;
+}
+
 .name {
   font-size: 1.7rem;
   font-weight: 600;
-
   margin-bottom: 5px;
 }
 
 .pronouns {
   margin-bottom: 13px;
-
-  color: white;
 }
 
 .about {
   background: rgba(0,0,0,.25);
-
   backdrop-filter: blur(30px);
-
   border-radius: 16px;
-
   padding: 12px 16px;
-
   font-size: .9rem;
-
   line-height: 1.6;
-
   text-align: left;
-
   white-space: pre-line;
-
   word-break: break-word;
 }
 
-.about a {
-  color: #9aa9ff;
-}
-
-/* =========================
-   DISCORD
-========================= */
-
 .message-btn {
   display: inline-block;
-
   margin-top: 18px;
-
   padding: 14px;
-
   border-radius: 50%;
-
   background: #5865F2;
-
-  box-shadow:
-    0 4px 12px rgba(88,101,242,.3);
-
-  transition: .15s;
+  transition: transform .15s;
 }
 
 .message-btn:hover {
@@ -179,144 +261,66 @@ body {
 .message-btn img {
   width: 28px;
   height: 28px;
-
   display: block;
 }
 
-/* =========================
-   EDIT BUTTON
-========================= */
+/* =========================================
+   EDIT
+========================================= */
 
 #editBtn {
   display: none;
-
   position: fixed;
-
   top: 16px;
   right: 16px;
-
   z-index: 50;
-
   border: 1px solid #4e5058;
-
-  background: rgba(30,31,34,.9);
-
+  background: rgba(30,31,34,.92);
   color: white;
-
   padding: 9px 17px;
-
   border-radius: 30px;
-
-  cursor: pointer;
-
   backdrop-filter: blur(10px);
 }
 
-/* =========================
-   MODAL
-========================= */
-
-.modal {
+#editModal {
   display: none;
-
   position: fixed;
-
   inset: 0;
-
   z-index: 100;
-
   background: rgba(0,0,0,.72);
-
   backdrop-filter: blur(8px);
-
   justify-content: center;
   align-items: center;
-
   padding: 18px;
 }
 
 .modal-box {
   width: 100%;
-  max-width: 430px;
-
+  max-width: 470px;
   max-height: 90vh;
-
   overflow-y: auto;
-
   background: #1e1f22;
-
   border-radius: 22px;
-
   padding: 24px;
-
-  box-shadow:
-    0 20px 50px rgba(0,0,0,.8);
+  box-shadow: 0 20px 50px rgba(0,0,0,.8);
 }
 
 .modal-box h2 {
   margin-bottom: 18px;
 }
 
-label {
-  display: block;
-
-  color: #b5b9c4;
-
-  font-size: .85rem;
-
-  margin: 13px 0 6px;
-}
-
-input,
-textarea {
-  width: 100%;
-
-  border: 1px solid #3a3d45;
-
-  background: #2b2d31;
-
-  color: white;
-
-  padding: 11px 13px;
-
-  border-radius: 12px;
-
-  font-family: inherit;
-
-  outline: none;
-}
-
-textarea {
-  min-height: 100px;
-
-  resize: vertical;
-}
-
-input:focus,
-textarea:focus {
-  border-color: #5865F2;
-}
-
 .actions {
   display: flex;
-
   gap: 10px;
-
   margin-top: 20px;
 }
 
 .actions button {
   flex: 1;
-
   border: 0;
-
   padding: 12px;
-
   border-radius: 30px;
-
   font-weight: 600;
-
-  cursor: pointer;
 }
 
 .save {
@@ -329,70 +333,65 @@ textarea:focus {
   color: white;
 }
 
-/* =========================
-   CREATE PAGE
-========================= */
+/* =========================================
+   UPLOADS
+========================================= */
 
-#createPage {
-  display: none;
-
-  width: 100%;
-  max-width: 430px;
-
-  background: #1e1f22;
-
-  border-radius: 24px;
-
-  padding: 28px;
-
-  box-shadow:
-    0 20px 50px rgba(0,0,0,.6);
+.upload-box {
+  background: #151619;
+  border: 1px dashed #4a4d57;
+  border-radius: 16px;
+  padding: 12px;
+  margin-top: 8px;
+  text-align: center;
 }
 
-#createPage h1 {
-  margin-bottom: 8px;
-}
-
-#createPage p {
-  color: #aaa;
-
-  line-height: 1.5;
-
-  margin-bottom: 20px;
-}
-
-#createPage button {
-  width: 100%;
-
+.upload-box input[type="file"] {
   border: 0;
-
-  background: #5865F2;
-
-  color: white;
-
-  padding: 13px;
-
-  border-radius: 30px;
-
-  font-weight: 600;
-
-  cursor: pointer;
+  background: transparent;
+  padding: 6px;
 }
 
-#googleInfo {
+.image-preview {
   display: none;
-
-  color: #aaa;
-
-  margin-bottom: 15px;
+  width: 100%;
+  max-height: 180px;
+  object-fit: contain;
+  border-radius: 12px;
+  margin-top: 12px;
+  background: #111214;
 }
 
-#usernameError {
-  color: #ff7777;
+.pfp-preview {
+  display: none;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 12px auto 0;
+}
 
-  font-size: .85rem;
+/* =========================================
+   GRADIENT
+========================================= */
 
-  margin-top: 5px;
+.color-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.color-input {
+  height: 45px;
+  padding: 3px;
+}
+
+.gradient-preview {
+  width: 100%;
+  height: 75px;
+  border-radius: 14px;
+  margin-top: 12px;
+  border: 1px solid #3a3d45;
 }
 </style>
 </head>
@@ -406,66 +405,301 @@ textarea:focus {
 <div id="error"></div>
 
 
-<!-- =========================
+<!-- =========================================
+     AUTH
+========================================= -->
+
+<div id="authPage" class="panel">
+
+  <div class="logo">Xvsoft</div>
+
+  <div class="subtitle">
+    Sign in or create your Xvsoft account.
+  </div>
+
+  <div class="tabs">
+
+    <button id="loginTab" class="active">
+      Login
+    </button>
+
+    <button id="registerTab">
+      Create Account
+    </button>
+
+  </div>
+
+
+  <div id="loginForm">
+
+    <label>Email</label>
+
+    <input
+      id="loginEmail"
+      type="email"
+      autocomplete="email"
+      placeholder="you@example.com"
+    >
+
+    <label>Password</label>
+
+    <input
+      id="loginPassword"
+      type="password"
+      autocomplete="current-password"
+      placeholder="Password"
+    >
+
+    <button id="loginBtn" class="primary">
+      Sign In
+    </button>
+
+  </div>
+
+
+  <div id="registerForm" style="display:none">
+
+    <label>Email</label>
+
+    <input
+      id="registerEmail"
+      type="email"
+      autocomplete="email"
+      placeholder="you@example.com"
+    >
+
+    <label>Password</label>
+
+    <input
+      id="registerPassword"
+      type="password"
+      autocomplete="new-password"
+      placeholder="At least 6 characters"
+    >
+
+    <button id="registerBtn" class="primary">
+      Create Account
+    </button>
+
+  </div>
+
+
+  <div id="authMessage" class="small-error"></div>
+
+</div>
+
+
+<!-- =========================================
      CREATE PROFILE
-========================= -->
+========================================= -->
 
-<div id="createPage">
+<div id="createPage" class="panel">
 
-  <h1>Create Xvsoft Profile</h1>
+  <div class="logo">
+    Create Profile
+  </div>
 
-  <p>
-    Sign in with Google to create your Xvsoft profile.
-    Each Google account can have one profile.
-  </p>
+  <div class="subtitle">
+    Customize your Xvsoft profile.
+  </div>
 
-  <div id="googleInfo"></div>
 
-  <button id="googleBtn">
-    Continue with Google
+  <label>Username</label>
+
+  <input
+    id="newUsername"
+    maxlength="24"
+    placeholder="Xv"
+  >
+
+
+  <label>Display Name</label>
+
+  <input
+    id="newName"
+    maxlength="40"
+    placeholder="Display name"
+  >
+
+
+  <label>Pronouns</label>
+
+  <input
+    id="newPronouns"
+    placeholder="he/him"
+  >
+
+
+  <label>About</label>
+
+  <textarea
+    id="newAbout"
+    placeholder="Tell people about yourself..."
+  ></textarea>
+
+
+  <label>Gradient</label>
+
+  <div class="color-row">
+
+    <input
+      id="newColor1"
+      class="color-input"
+      type="color"
+      value="#EEBD89"
+    >
+
+    <input
+      id="newColor2"
+      class="color-input"
+      type="color"
+      value="#D13ABD"
+    >
+
+  </div>
+
+
+  <select id="newDirection">
+
+    <option value="90deg">
+      → Left to Right
+    </option>
+
+    <option value="180deg">
+      ↓ Top to Bottom
+    </option>
+
+    <option value="45deg">
+      ↗ Diagonal
+    </option>
+
+    <option value="135deg">
+      ↘ Diagonal
+    </option>
+
+  </select>
+
+
+  <div
+    id="newGradientPreview"
+    class="gradient-preview"
+  ></div>
+
+
+  <label>Banner</label>
+
+  <div class="upload-box">
+
+    <input
+      id="newBannerFile"
+      type="file"
+      accept="image/*"
+    >
+
+    <img
+      id="newBannerPreview"
+      class="image-preview"
+      alt="Banner preview"
+    >
+
+  </div>
+
+
+  <label>Profile Picture</label>
+
+  <div class="upload-box">
+
+    <input
+      id="newPfpFile"
+      type="file"
+      accept="image/*"
+    >
+
+    <img
+      id="newPfpPreview"
+      class="pfp-preview"
+      alt="PFP preview"
+    >
+
+  </div>
+
+
+  <label>Discord ID</label>
+
+  <input
+    id="newDiscord"
+    placeholder="Optional Discord ID"
+  >
+
+
+  <div
+    id="createError"
+    class="small-error"
+  ></div>
+
+
+  <button
+    id="createProfileBtn"
+    class="primary"
+  >
+    Create Xvsoft Profile
+  </button>
+
+
+  <button
+    id="createSignOutBtn"
+    class="secondary"
+  >
+    Sign Out
   </button>
 
 </div>
 
 
-<!-- =========================
+<!-- =========================================
      PROFILE
-========================= -->
+========================================= -->
 
-<button id="editBtn">
-  ✎ Edit Profile
-</button>
+<div
+  id="profile"
+  class="profile"
+>
 
-<div class="profile" id="profile">
-
-  <div class="banner" id="banner">
+  <div
+    id="banner"
+    class="banner"
+  >
 
     <img
-      class="pfp"
       id="pfp"
+      class="pfp"
       alt="Profile Picture"
     >
 
   </div>
 
+
   <div class="content">
 
-    <h2 class="name" id="name"></h2>
+    <h2 id="name" class="name"></h2>
 
-    <p class="pronouns" id="pronouns"></p>
+    <p id="pronouns" class="pronouns"></p>
 
-    <div class="about" id="about"></div>
+    <div id="about" class="about"></div>
+
 
     <a
-      class="message-btn"
       id="discord"
+      class="message-btn"
       target="_blank"
       rel="noopener noreferrer"
     >
+
       <img
         src="https://i.supaimg.com/b01fa386-b822-4e99-82b1-3a1158b28e61.png"
         alt="Discord"
       >
+
     </a>
 
   </div>
@@ -473,15 +707,21 @@ textarea:focus {
 </div>
 
 
-<!-- =========================
-     EDIT MODAL
-========================= -->
+<button id="editBtn">
+  ✎ Edit Profile
+</button>
 
-<div class="modal" id="editModal">
+
+<!-- =========================================
+     EDIT MODAL
+========================================= -->
+
+<div id="editModal">
 
   <div class="modal-box">
 
     <h2>Edit Profile</h2>
+
 
     <label>Username</label>
 
@@ -490,67 +730,126 @@ textarea:focus {
       disabled
     >
 
+
     <label>Display Name</label>
 
     <input
       id="editName"
-      placeholder="Your name"
+      maxlength="40"
     >
 
-    <label>Pronouns / Status</label>
 
-    <input
-      id="editPronouns"
-      placeholder="he/him"
-    >
+    <label>Pronouns</label>
+
+    <input id="editPronouns">
+
 
     <label>About</label>
 
-    <textarea
-      id="editAbout"
-      placeholder="Write something..."
-    ></textarea>
+    <textarea id="editAbout"></textarea>
+
 
     <label>Gradient</label>
 
-    <input
-      id="editGradient"
-      placeholder="linear-gradient(280deg,#EEBD89,#D13ABD)"
-    >
+    <div class="color-row">
 
-    <label>Banner URL</label>
+      <input
+        id="editColor1"
+        class="color-input"
+        type="color"
+      >
 
-    <input
-      id="editBanner"
-      placeholder="https://example.com/banner.png"
-    >
+      <input
+        id="editColor2"
+        class="color-input"
+        type="color"
+      >
 
-    <label>Profile Picture URL</label>
+    </div>
 
-    <input
-      id="editPfp"
-      placeholder="https://example.com/avatar.png"
-    >
+
+    <select id="editDirection">
+
+      <option value="90deg">
+        → Left to Right
+      </option>
+
+      <option value="180deg">
+        ↓ Top to Bottom
+      </option>
+
+      <option value="45deg">
+        ↗ Diagonal
+      </option>
+
+      <option value="135deg">
+        ↘ Diagonal
+      </option>
+
+    </select>
+
+
+    <div
+      id="editGradientPreview"
+      class="gradient-preview"
+    ></div>
+
+
+    <label>Banner</label>
+
+    <div class="upload-box">
+
+      <input
+        id="editBannerFile"
+        type="file"
+        accept="image/*"
+      >
+
+      <img
+        id="editBannerPreview"
+        class="image-preview"
+        alt="Banner preview"
+      >
+
+    </div>
+
+
+    <label>Profile Picture</label>
+
+    <div class="upload-box">
+
+      <input
+        id="editPfpFile"
+        type="file"
+        accept="image/*"
+      >
+
+      <img
+        id="editPfpPreview"
+        class="pfp-preview"
+        alt="PFP preview"
+      >
+
+    </div>
+
 
     <label>Discord ID</label>
 
-    <input
-      id="editDiscord"
-      placeholder="123456789012345678"
-    >
+    <input id="editDiscord">
+
 
     <div class="actions">
 
       <button
-        class="cancel"
         id="cancelEdit"
+        class="cancel"
       >
         Cancel
       </button>
 
       <button
-        class="save"
         id="saveEdit"
+        class="save"
       >
         Save
       </button>
@@ -564,15 +863,15 @@ textarea:focus {
 
 <script type="module">
 
-/* =====================================================
+/* =========================================
    FIREBASE
-===================================================== */
+========================================= */
 
 import {
   initializeApp
-}
-from
+} from
 "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
 
 import {
   getFirestore,
@@ -580,23 +879,33 @@ import {
   getDoc,
   setDoc,
   runTransaction
-}
-from
+} from
 "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
+
 import {
-  getAuth,
-  GoogleAuthProvider,
-  signInWithPopup,
+  initializeAuth,
+  browserLocalPersistence,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
   onAuthStateChanged
-}
-from
+} from
 "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
 
 
-/* =====================================================
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL
+} from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-storage.js";
+
+
+/* =========================================
    CONFIG
-===================================================== */
+========================================= */
 
 const firebaseConfig = {
 
@@ -620,29 +929,48 @@ const firebaseConfig = {
 
   measurementId:
     "G-P4BPHG3DW7"
+
 };
 
-
-/* =====================================================
-   INITIALIZE
-===================================================== */
 
 const app =
   initializeApp(firebaseConfig);
 
+
+const auth =
+  initializeAuth(
+    app,
+    {
+      persistence:
+        browserLocalPersistence
+    }
+  );
+
+
 const db =
   getFirestore(app);
 
-const auth =
-  getAuth(app);
 
-const provider =
-  new GoogleAuthProvider();
+const storage =
+  getStorage(app);
 
 
-/* =====================================================
+/* =========================================
+   URL
+========================================= */
+
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+const requestedUsername =
+  params.get("user");
+
+
+/* =========================================
    ELEMENTS
-===================================================== */
+========================================= */
 
 const loading =
   document.getElementById("loading");
@@ -650,11 +978,14 @@ const loading =
 const errorBox =
   document.getElementById("error");
 
-const profile =
-  document.getElementById("profile");
+const authPage =
+  document.getElementById("authPage");
 
 const createPage =
   document.getElementById("createPage");
+
+const profile =
+  document.getElementById("profile");
 
 const editBtn =
   document.getElementById("editBtn");
@@ -662,66 +993,1186 @@ const editBtn =
 const editModal =
   document.getElementById("editModal");
 
-const googleBtn =
-  document.getElementById("googleBtn");
 
+/* =========================================
+   HELPERS
+========================================= */
 
-/* =====================================================
-   URL USER
-===================================================== */
+function hideEverything() {
 
-const params =
-  new URLSearchParams(
-    window.location.search
-  );
+  loading.style.display =
+    "none";
 
-const username =
-  params.get("user");
+  errorBox.style.display =
+    "none";
 
+  authPage.style.display =
+    "none";
 
-/* =====================================================
-   ERROR
-===================================================== */
+  createPage.style.display =
+    "none";
 
-function showError(message) {
+  profile.style.display =
+    "none";
 
-  loading.style.display = "none";
+  editBtn.style.display =
+    "none";
 
-  profile.style.display = "none";
-
-  createPage.style.display = "none";
-
-  errorBox.style.display = "block";
-
-  errorBox.textContent = message;
 }
 
 
-/* =====================================================
-   LOAD PROFILE
-===================================================== */
+function showError(message) {
 
-async function loadProfile(userName) {
+  hideEverything();
+
+  errorBox.style.display =
+    "block";
+
+  errorBox.textContent =
+    message;
+
+}
+
+
+/* =========================================
+   GRADIENT
+========================================= */
+
+function makeGradient(
+  color1,
+  color2,
+  direction
+) {
+
+  return (
+    "linear-gradient(" +
+    direction +
+    ", " +
+    color1 +
+    ", " +
+    color2 +
+    ")"
+  );
+
+}
+
+
+function updateNewGradient() {
+
+  newGradientPreview.style.background =
+    makeGradient(
+      newColor1.value,
+      newColor2.value,
+      newDirection.value
+    );
+
+}
+
+
+function updateEditGradient() {
+
+  editGradientPreview.style.background =
+    makeGradient(
+      editColor1.value,
+      editColor2.value,
+      editDirection.value
+    );
+
+}
+
+
+/* =========================================
+   IMAGE PROCESSING
+========================================= */
+
+async function processImage(
+  file,
+  maxDimension
+) {
+
+  if (!file)
+    return null;
+
+
+  return new Promise(
+    (resolve, reject) => {
+
+      const reader =
+        new FileReader();
+
+      const image =
+        new Image();
+
+
+      reader.onload =
+        event => {
+
+          image.src =
+            event.target.result;
+
+        };
+
+
+      reader.onerror =
+        () => reject(
+          new Error(
+            "Could not read image."
+          )
+        );
+
+
+      image.onload =
+        () => {
+
+          let width =
+            image.naturalWidth;
+
+          let height =
+            image.naturalHeight;
+
+
+          const scale =
+            Math.min(
+              1,
+              maxDimension /
+              Math.max(
+                width,
+                height
+              )
+            );
+
+
+          width =
+            Math.round(
+              width * scale
+            );
+
+          height =
+            Math.round(
+              height * scale
+            );
+
+
+          const canvas =
+            document.createElement(
+              "canvas"
+            );
+
+
+          canvas.width =
+            width;
+
+          canvas.height =
+            height;
+
+
+          const context =
+            canvas.getContext(
+              "2d"
+            );
+
+
+          context.drawImage(
+            image,
+            0,
+            0,
+            width,
+            height
+          );
+
+
+          canvas.toBlob(
+            blob => {
+
+              if (!blob) {
+
+                reject(
+                  new Error(
+                    "Could not compress image."
+                  )
+                );
+
+                return;
+
+              }
+
+              resolve(blob);
+
+            },
+            "image/webp",
+            0.85
+          );
+
+        };
+
+
+      image.onerror =
+        () => reject(
+          new Error(
+            "Invalid image."
+          )
+        );
+
+
+      reader.readAsDataURL(file);
+
+    }
+  );
+
+}
+
+
+/* =========================================
+   UPLOAD TO FIREBASE STORAGE
+========================================= */
+
+async function uploadImage(
+  file,
+  path,
+  maxDimension
+) {
+
+  if (!file)
+    return "";
+
+
+  const blob =
+    await processImage(
+      file,
+      maxDimension
+    );
+
+
+  /*
+    ACTUAL IMAGE FILE goes here.
+    Firestore does NOT store the image.
+  */
+
+  const storageRef =
+    ref(
+      storage,
+      path
+    );
+
+
+  await uploadBytes(
+    storageRef,
+    blob,
+    {
+      contentType:
+        "image/webp"
+    }
+  );
+
+
+  /*
+    Firestore stores this URL,
+    which points back to the actual
+    image in Firebase Storage.
+  */
+
+  return await getDownloadURL(
+    storageRef
+  );
+
+}
+
+
+/* =========================================
+   PREVIEWS
+========================================= */
+
+function setupPreview(
+  input,
+  preview,
+  maxDimension
+) {
+
+  input.addEventListener(
+    "change",
+    async () => {
+
+      const file =
+        input.files[0];
+
+      if (!file)
+        return;
+
+
+      try {
+
+        const blob =
+          await processImage(
+            file,
+            maxDimension
+          );
+
+
+        preview.src =
+          URL.createObjectURL(
+            blob
+          );
+
+
+        preview.style.display =
+          "block";
+
+
+      } catch (error) {
+
+        alert(
+          error.message
+        );
+
+      }
+
+    }
+  );
+
+}
+
+
+/* =========================================
+   CREATE ELEMENT REFERENCES
+========================================= */
+
+const newUsername =
+  document.getElementById("newUsername");
+
+const newName =
+  document.getElementById("newName");
+
+const newPronouns =
+  document.getElementById("newPronouns");
+
+const newAbout =
+  document.getElementById("newAbout");
+
+const newColor1 =
+  document.getElementById("newColor1");
+
+const newColor2 =
+  document.getElementById("newColor2");
+
+const newDirection =
+  document.getElementById("newDirection");
+
+const newGradientPreview =
+  document.getElementById(
+    "newGradientPreview"
+  );
+
+const newBannerFile =
+  document.getElementById(
+    "newBannerFile"
+  );
+
+const newBannerPreview =
+  document.getElementById(
+    "newBannerPreview"
+  );
+
+const newPfpFile =
+  document.getElementById(
+    "newPfpFile"
+  );
+
+const newPfpPreview =
+  document.getElementById(
+    "newPfpPreview"
+  );
+
+const newDiscord =
+  document.getElementById(
+    "newDiscord"
+  );
+
+const createError =
+  document.getElementById(
+    "createError"
+  );
+
+const createProfileBtn =
+  document.getElementById(
+    "createProfileBtn"
+  );
+
+
+const loginTab =
+  document.getElementById(
+    "loginTab"
+  );
+
+const registerTab =
+  document.getElementById(
+    "registerTab"
+  );
+
+const loginForm =
+  document.getElementById(
+    "loginForm"
+  );
+
+const registerForm =
+  document.getElementById(
+    "registerForm"
+  );
+
+const loginEmail =
+  document.getElementById(
+    "loginEmail"
+  );
+
+const loginPassword =
+  document.getElementById(
+    "loginPassword"
+  );
+
+const loginBtn =
+  document.getElementById(
+    "loginBtn"
+  );
+
+const registerEmail =
+  document.getElementById(
+    "registerEmail"
+  );
+
+const registerPassword =
+  document.getElementById(
+    "registerPassword"
+  );
+
+const registerBtn =
+  document.getElementById(
+    "registerBtn"
+  );
+
+const authMessage =
+  document.getElementById(
+    "authMessage"
+  );
+
+
+const banner =
+  document.getElementById(
+    "banner"
+  );
+
+const pfp =
+  document.getElementById(
+    "pfp"
+  );
+
+const nameElement =
+  document.getElementById(
+    "name"
+  );
+
+const pronouns =
+  document.getElementById(
+    "pronouns"
+  );
+
+const about =
+  document.getElementById(
+    "about"
+  );
+
+const discord =
+  document.getElementById(
+    "discord"
+  );
+
+
+const editUsername =
+  document.getElementById(
+    "editUsername"
+  );
+
+const editName =
+  document.getElementById(
+    "editName"
+  );
+
+const editPronouns =
+  document.getElementById(
+    "editPronouns"
+  );
+
+const editAbout =
+  document.getElementById(
+    "editAbout"
+  );
+
+const editColor1 =
+  document.getElementById(
+    "editColor1"
+  );
+
+const editColor2 =
+  document.getElementById(
+    "editColor2"
+  );
+
+const editDirection =
+  document.getElementById(
+    "editDirection"
+  );
+
+const editGradientPreview =
+  document.getElementById(
+    "editGradientPreview"
+  );
+
+const editBannerFile =
+  document.getElementById(
+    "editBannerFile"
+  );
+
+const editBannerPreview =
+  document.getElementById(
+    "editBannerPreview"
+  );
+
+const editPfpFile =
+  document.getElementById(
+    "editPfpFile"
+  );
+
+const editPfpPreview =
+  document.getElementById(
+    "editPfpPreview"
+  );
+
+const editDiscord =
+  document.getElementById(
+    "editDiscord"
+  );
+
+const saveEdit =
+  document.getElementById(
+    "saveEdit"
+  );
+
+const cancelEdit =
+  document.getElementById(
+    "cancelEdit"
+  );
+
+
+/* =========================================
+   SETUP
+========================================= */
+
+setupPreview(
+  newBannerFile,
+  newBannerPreview,
+  1280
+);
+
+setupPreview(
+  newPfpFile,
+  newPfpPreview,
+  480
+);
+
+setupPreview(
+  editBannerFile,
+  editBannerPreview,
+  1280
+);
+
+setupPreview(
+  editPfpFile,
+  editPfpPreview,
+  480
+);
+
+
+newColor1.addEventListener(
+  "input",
+  updateNewGradient
+);
+
+newColor2.addEventListener(
+  "input",
+  updateNewGradient
+);
+
+newDirection.addEventListener(
+  "change",
+  updateNewGradient
+);
+
+editColor1.addEventListener(
+  "input",
+  updateEditGradient
+);
+
+editColor2.addEventListener(
+  "input",
+  updateEditGradient
+);
+
+editDirection.addEventListener(
+  "change",
+  updateEditGradient
+);
+
+updateNewGradient();
+
+
+/* =========================================
+   AUTH TABS
+========================================= */
+
+loginTab.addEventListener(
+  "click",
+  () => {
+
+    loginTab.classList.add(
+      "active"
+    );
+
+    registerTab.classList.remove(
+      "active"
+    );
+
+    loginForm.style.display =
+      "block";
+
+    registerForm.style.display =
+      "none";
+
+    authMessage.textContent =
+      "";
+
+  }
+);
+
+
+registerTab.addEventListener(
+  "click",
+  () => {
+
+    registerTab.classList.add(
+      "active"
+    );
+
+    loginTab.classList.remove(
+      "active"
+    );
+
+    loginForm.style.display =
+      "none";
+
+    registerForm.style.display =
+      "block";
+
+    authMessage.textContent =
+      "";
+
+  }
+);
+
+
+/* =========================================
+   AUTH ERROR
+========================================= */
+
+function authErrorMessage(code) {
+
+  switch(code) {
+
+    case "auth/email-already-in-use":
+      return "That email already has an account.";
+
+    case "auth/invalid-email":
+      return "That email address is invalid.";
+
+    case "auth/weak-password":
+      return "Password must be at least 6 characters.";
+
+    case "auth/invalid-credential":
+      return "Incorrect email or password.";
+
+    case "auth/too-many-requests":
+      return "Too many attempts. Try again later.";
+
+    default:
+      return "Authentication failed.";
+
+  }
+
+}
+
+
+/* =========================================
+   LOGIN
+========================================= */
+
+loginBtn.addEventListener(
+  "click",
+  async () => {
+
+    try {
+
+      loginBtn.disabled =
+        true;
+
+      loginBtn.textContent =
+        "Signing in...";
+
+
+      await signInWithEmailAndPassword(
+        auth,
+        loginEmail.value.trim(),
+        loginPassword.value
+      );
+
+
+      authMessage.textContent =
+        "Account saved";
+
+      authMessage.style.color =
+        "#57f287";
+
+
+    } catch(error) {
+
+      authMessage.textContent =
+        authErrorMessage(
+          error.code
+        );
+
+      authMessage.style.color =
+        "#ff7777";
+
+    } finally {
+
+      loginBtn.disabled =
+        false;
+
+      loginBtn.textContent =
+        "Sign In";
+
+    }
+
+  }
+);
+
+
+/* =========================================
+   REGISTER
+========================================= */
+
+registerBtn.addEventListener(
+  "click",
+  async () => {
+
+    try {
+
+      registerBtn.disabled =
+        true;
+
+      registerBtn.textContent =
+        "Creating...";
+
+
+      await createUserWithEmailAndPassword(
+        auth,
+        registerEmail.value.trim(),
+        registerPassword.value
+      );
+
+
+      authMessage.textContent =
+        "Account saved";
+
+      authMessage.style.color =
+        "#57f287";
+
+
+    } catch(error) {
+
+      authMessage.textContent =
+        authErrorMessage(
+          error.code
+        );
+
+      authMessage.style.color =
+        "#ff7777";
+
+    } finally {
+
+      registerBtn.disabled =
+        false;
+
+      registerBtn.textContent =
+        "Create Account";
+
+    }
+
+  }
+);
+
+
+/* =========================================
+   CREATE PROFILE
+========================================= */
+
+createProfileBtn.addEventListener(
+  "click",
+  async () => {
+
+    const user =
+      auth.currentUser;
+
+
+    if (!user) {
+
+      createError.textContent =
+        "You must be signed in.";
+
+      return;
+
+    }
+
+
+    const username =
+      newUsername.value.trim();
+
+
+    if (
+      !/^[a-zA-Z0-9_-]{3,24}$/.test(
+        username
+      )
+    ) {
+
+      createError.textContent =
+        "Username must be 3-24 characters.";
+
+      return;
+
+    }
+
+
+    try {
+
+      createProfileBtn.disabled =
+        true;
+
+      createProfileBtn.textContent =
+        "Uploading images...";
+
+
+      const profileRef =
+        doc(
+          db,
+          "profiles",
+          username
+        );
+
+
+      const userRef =
+        doc(
+          db,
+          "users",
+          user.uid
+        );
+
+
+      /*
+        CHECK EVERYTHING BEFORE
+        UPLOADING.
+      */
+
+      const existingProfile =
+        await getDoc(
+          profileRef
+        );
+
+      if (
+        existingProfile.exists()
+      ) {
+
+        throw new Error(
+          "USERNAME_TAKEN"
+        );
+
+      }
+
+
+      const existingUser =
+        await getDoc(
+          userRef
+        );
+
+      if (
+        existingUser.exists() &&
+        existingUser.data().username
+      ) {
+
+        throw new Error(
+          "PROFILE_EXISTS"
+        );
+
+      }
+
+
+      /*
+        UPLOAD THE ACTUAL FILES.
+      */
+
+      let pfpUrl = "";
+
+      let bannerUrl = "";
+
+
+      if (
+        newPfpFile.files[0]
+      ) {
+
+        createProfileBtn.textContent =
+          "Uploading profile picture...";
+
+
+        pfpUrl =
+          await uploadImage(
+            newPfpFile.files[0],
+            "profiles/" +
+            user.uid +
+            "/pfp.webp",
+            480
+          );
+
+      }
+
+
+      if (
+        newBannerFile.files[0]
+      ) {
+
+        createProfileBtn.textContent =
+          "Uploading banner...";
+
+
+        bannerUrl =
+          await uploadImage(
+            newBannerFile.files[0],
+            "profiles/" +
+            user.uid +
+            "/banner.webp",
+            1280
+          );
+
+      }
+
+
+      /*
+        ONLY NOW CREATE FIRESTORE DATA.
+      */
+
+      createProfileBtn.textContent =
+        "Saving profile...";
+
+
+      await runTransaction(
+        db,
+        async transaction => {
+
+          const profileCheck =
+            await transaction.get(
+              profileRef
+            );
+
+          const userCheck =
+            await transaction.get(
+              userRef
+            );
+
+
+          if (
+            profileCheck.exists()
+          ) {
+
+            throw new Error(
+              "USERNAME_TAKEN"
+            );
+
+          }
+
+
+          if (
+            userCheck.exists() &&
+            userCheck.data().username
+          ) {
+
+            throw new Error(
+              "PROFILE_EXISTS"
+            );
+
+          }
+
+
+          transaction.set(
+            profileRef,
+            {
+
+              ownerUid:
+                user.uid,
+
+              name:
+                newName.value.trim()
+                || username,
+
+              pronouns:
+                newPronouns.value.trim(),
+
+              about:
+                newAbout.value,
+
+              gradient:
+                makeGradient(
+                  newColor1.value,
+                  newColor2.value,
+                  newDirection.value
+                ),
+
+              discordId:
+                newDiscord.value.trim(),
+
+              /*
+                These are URLs pointing
+                to the actual files in
+                Firebase Storage.
+              */
+
+              pfp:
+                pfpUrl,
+
+              banner:
+                bannerUrl
+
+            }
+          );
+
+
+          transaction.set(
+            userRef,
+            {
+              username:
+                username
+            }
+          );
+
+        }
+      );
+
+
+      /*
+        EVERYTHING succeeded.
+      */
+
+      createProfileBtn.textContent =
+        "Account saved ✓";
+
+
+      createProfileBtn.style.background =
+        "#3ba55d";
+
+
+      setTimeout(
+        () => {
+
+          window.location.href =
+            "?user=" +
+            encodeURIComponent(
+              username
+            );
+
+        },
+        700
+      );
+
+
+    } catch(error) {
+
+      console.error(error);
+
+
+      if (
+        error.message ===
+        "USERNAME_TAKEN"
+      ) {
+
+        createError.textContent =
+          "That username is already taken.";
+
+      } else if (
+        error.message ===
+        "PROFILE_EXISTS"
+      ) {
+
+        createError.textContent =
+          "This account already has a profile.";
+
+      } else {
+
+        createError.textContent =
+          "Could not create profile: " +
+          error.message;
+
+      }
+
+
+      createProfileBtn.disabled =
+        false;
+
+      createProfileBtn.textContent =
+        "Create Xvsoft Profile";
+
+      createProfileBtn.style.background =
+        "";
+
+    }
+
+  }
+);
+
+
+/* =========================================
+   LOAD PROFILE
+========================================= */
+
+async function loadProfile(
+  username,
+  currentUser
+) {
 
   try {
 
-    const ref =
+    const profileRef =
       doc(
         db,
         "profiles",
-        userName
+        username
       );
 
+
     const snapshot =
-      await getDoc(ref);
+      await getDoc(
+        profileRef
+      );
 
 
     if (!snapshot.exists()) {
 
       showError(
-        "Profile \"" +
-        userName +
-        "\" does not exist."
+        'Profile "' +
+        username +
+        '" was not found.'
       );
 
       return;
@@ -733,61 +2184,78 @@ async function loadProfile(userName) {
       snapshot.data();
 
 
-    document.getElementById("name")
-      .textContent =
-      data.name || userName;
+    nameElement.textContent =
+      data.name ||
+      username;
 
 
-    document.getElementById("pronouns")
-      .textContent =
-      data.pronouns || "";
+    pronouns.textContent =
+      data.pronouns ||
+      "";
 
 
-    document.getElementById("about")
-      .textContent =
-      data.about || "";
+    about.textContent =
+      data.about ||
+      "";
 
 
-    const pfp =
-      document.getElementById("pfp");
-
+    /*
+      PFP
+    */
 
     if (data.pfp) {
 
-      pfp.src = data.pfp;
+      pfp.src =
+        data.pfp;
 
-      pfp.style.display = "block";
+      pfp.style.display =
+        "block";
 
     } else {
 
-      pfp.style.display = "none";
+      pfp.style.display =
+        "none";
+
     }
 
 
-    const banner =
-      document.getElementById("banner");
-
+    /*
+      BANNER
+    */
 
     if (data.banner) {
+
+      banner.classList.add(
+        "has-banner"
+      );
 
       banner.style.backgroundImage =
         `url("${data.banner}")`;
 
     } else {
 
+      banner.classList.remove(
+        "has-banner"
+      );
+
       banner.style.backgroundImage =
         "none";
+
     }
 
+
+    /*
+      GRADIENT
+    */
 
     profile.style.background =
       data.gradient ||
       "linear-gradient(280deg,#EEBD89,#D13ABD)";
 
 
-    const discord =
-      document.getElementById("discord");
-
+    /*
+      DISCORD
+    */
 
     if (data.discordId) {
 
@@ -802,50 +2270,48 @@ async function loadProfile(userName) {
 
       discord.style.display =
         "none";
+
     }
 
 
     document.title =
-      (data.name || userName) +
+      (data.name || username) +
       " | Xvsoft";
 
 
-    loading.style.display = "none";
+    hideEverything();
 
-    profile.style.display = "block";
+    profile.style.display =
+      "block";
 
 
-    /* ============================================
-       SHOW EDIT ONLY TO OWNER
-    ============================================ */
-
-    const currentUser =
-      auth.currentUser;
-
+    /*
+      OWNER CHECK
+    */
 
     if (
       currentUser &&
-      data.ownerUid === currentUser.uid
+      data.ownerUid ===
+      currentUser.uid
     ) {
 
       editBtn.style.display =
         "block";
 
       prepareEditor(
-        userName,
+        username,
         data
       );
 
     }
 
+  } catch(error) {
 
-  } catch (err) {
-
-    console.error(err);
+    console.error(error);
 
     showError(
       "Firebase error: " +
-      err.message
+      error.message
     );
 
   }
@@ -853,565 +2319,88 @@ async function loadProfile(userName) {
 }
 
 
-/* =====================================================
-   CREATE PROFILE PAGE
-===================================================== */
-
-function showCreatePage() {
-
-  loading.style.display = "none";
-
-  profile.style.display = "none";
-
-  errorBox.style.display = "none";
-
-  createPage.style.display = "block";
-
-}
-
-
-/* =====================================================
-   GOOGLE LOGIN
-===================================================== */
-
-googleBtn.addEventListener(
-  "click",
-  async () => {
-
-    try {
-
-      googleBtn.disabled = true;
-
-      googleBtn.textContent =
-        "Signing in...";
-
-
-      await signInWithPopup(
-        auth,
-        provider
-      );
-
-
-    } catch (err) {
-
-      console.error(err);
-
-      alert(
-        "Google sign-in failed."
-      );
-
-      googleBtn.disabled = false;
-
-      googleBtn.textContent =
-        "Continue with Google";
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   AUTH STATE
-===================================================== */
-
-onAuthStateChanged(
-  auth,
-  async user => {
-
-    /*
-      If URL has a profile:
-
-      load it regardless of login.
-    */
-
-    if (username) {
-
-      await loadProfile(
-        username
-      );
-
-      return;
-    }
-
-
-    /*
-      No ?user=
-
-      Show profile creation page.
-    */
-
-    if (!user) {
-
-      showCreatePage();
-
-      return;
-    }
-
-
-    /*
-      User is logged in.
-      Check whether they already
-      have a profile.
-    */
-
-    try {
-
-      const userRef =
-        doc(
-          db,
-          "users",
-          user.uid
-        );
-
-      const userSnapshot =
-        await getDoc(userRef);
-
-
-      if (
-        userSnapshot.exists()
-      ) {
-
-        const userData =
-          userSnapshot.data();
-
-        window.location.href =
-          "?user=" +
-          encodeURIComponent(
-            userData.username
-          );
-
-        return;
-
-      }
-
-
-      showProfileCreationForm(
-        user
-      );
-
-
-    } catch (err) {
-
-      console.error(err);
-
-      showError(
-        "Could not check your account."
-      );
-
-    }
-
-  }
-);
-
-
-/* =====================================================
-   PROFILE CREATION FORM
-===================================================== */
-
-function showProfileCreationForm(user) {
-
-  createPage.innerHTML = `
-
-    <h1>Create Profile</h1>
-
-    <p>
-      Signed in as
-      <strong>${escapeHtml(user.email || "")}</strong>
-    </p>
-
-    <label>Username</label>
-
-    <input
-      id="newUsername"
-      placeholder="Choose a username"
-      maxlength="24"
-      autocomplete="off"
-    >
-
-    <div id="usernameError"></div>
-
-    <label>Display Name</label>
-
-    <input
-      id="newName"
-      placeholder="Display name"
-      maxlength="40"
-    >
-
-    <label>Pronouns / Status</label>
-
-    <input
-      id="newPronouns"
-      placeholder="he/him"
-    >
-
-    <label>About</label>
-
-    <textarea
-      id="newAbout"
-      placeholder="Write something..."
-    ></textarea>
-
-    <label>Gradient</label>
-
-    <input
-      id="newGradient"
-      value="linear-gradient(280deg,#EEBD89,#D13ABD)"
-    >
-
-    <label>Banner URL</label>
-
-    <input
-      id="newBanner"
-      placeholder="Optional banner URL"
-    >
-
-    <label>Profile Picture URL</label>
-
-    <input
-      id="newPfp"
-      placeholder="Optional PFP URL"
-    >
-
-    <label>Discord ID</label>
-
-    <input
-      id="newDiscord"
-      placeholder="Optional Discord ID"
-    >
-
-    <br><br>
-
-    <button id="createProfileBtn">
-      Create Xvsoft Profile
-    </button>
-
-  `;
-
-
-  document
-    .getElementById("createProfileBtn")
-    .addEventListener(
-      "click",
-      () => createProfile(user)
-    );
-
-}
-
-
-/* =====================================================
-   CREATE PROFILE
-===================================================== */
-
-async function createProfile(user) {
-
-  const usernameInput =
-    document.getElementById(
-      "newUsername"
-    );
-
-  const username =
-    usernameInput.value
-      .trim();
-
-
-  const usernameError =
-    document.getElementById(
-      "usernameError"
-    );
-
-
-  /*
-    Safe username:
-
-    letters
-    numbers
-    underscore
-    hyphen
-  */
-
-  if (
-    !/^[a-zA-Z0-9_-]{3,24}$/
-      .test(username)
-  ) {
-
-    usernameError.textContent =
-      "Username must be 3-24 characters and contain only letters, numbers, _ or -.";
-
-    return;
-  }
-
-
-  const profileRef =
-    doc(
-      db,
-      "profiles",
-      username
-    );
-
-
-  const userRef =
-    doc(
-      db,
-      "users",
-      user.uid
-    );
-
-
-  try {
-
-    const name =
-      document.getElementById(
-        "newName"
-      ).value.trim();
-
-
-    const pronouns =
-      document.getElementById(
-        "newPronouns"
-      ).value.trim();
-
-
-    const about =
-      document.getElementById(
-        "newAbout"
-      ).value;
-
-
-    const gradient =
-      document.getElementById(
-        "newGradient"
-      ).value.trim();
-
-
-    const banner =
-      document.getElementById(
-        "newBanner"
-      ).value.trim();
-
-
-    const pfp =
-      document.getElementById(
-        "newPfp"
-      ).value.trim();
-
-
-    const discordId =
-      document.getElementById(
-        "newDiscord"
-      ).value.trim();
-
-
-    /*
-      Transaction:
-
-      1. Make sure username isn't taken.
-      2. Make sure Google account doesn't
-         already have a profile.
-      3. Create both records together.
-    */
-
-    await runTransaction(
-      db,
-      async transaction => {
-
-        const profileSnap =
-          await transaction.get(
-            profileRef
-          );
-
-
-        const userSnap =
-          await transaction.get(
-            userRef
-          );
-
-
-        if (
-          profileSnap.exists()
-        ) {
-
-          throw new Error(
-            "USERNAME_TAKEN"
-          );
-
-        }
-
-
-        if (
-          userSnap.exists()
-        ) {
-
-          throw new Error(
-            "ALREADY_HAS_PROFILE"
-          );
-
-        }
-
-
-        transaction.set(
-          profileRef,
-          {
-
-            ownerUid:
-              user.uid,
-
-            name:
-              name || username,
-
-            pronouns:
-              pronouns,
-
-            about:
-              about,
-
-            gradient:
-              gradient,
-
-            banner:
-              banner,
-
-            pfp:
-              pfp,
-
-            discordId:
-              discordId,
-
-            createdAt:
-              new Date()
-
-          }
-        );
-
-
-        transaction.set(
-          userRef,
-          {
-
-            username:
-              username
-
-          }
-        );
-
-      }
-    );
-
-
-    /*
-      Success
-    */
-
-    window.location.href =
-      "?user=" +
-      encodeURIComponent(
-        username
-      );
-
-
-  } catch (err) {
-
-    console.error(err);
-
-    if (
-      err.message ===
-      "USERNAME_TAKEN"
-    ) {
-
-      usernameError.textContent =
-        "That username is already taken.";
-
-    } else if (
-      err.message ===
-      "ALREADY_HAS_PROFILE"
-    ) {
-
-      usernameError.textContent =
-        "Your Google account already has an Xvsoft profile.";
-
-    } else {
-
-      usernameError.textContent =
-        "Could not create profile: " +
-        err.message;
-
-    }
-
-  }
-
-}
-
-
-/* =====================================================
+/* =========================================
    EDITOR
-===================================================== */
+========================================= */
 
 let editingUsername = null;
 
 
 function prepareEditor(
-  userName,
+  username,
   data
 ) {
 
   editingUsername =
-    userName;
+    username;
 
 
-  document.getElementById(
-    "editUsername"
-  ).value =
-    userName;
+  editUsername.value =
+    username;
 
-
-  document.getElementById(
-    "editName"
-  ).value =
+  editName.value =
     data.name || "";
 
-
-  document.getElementById(
-    "editPronouns"
-  ).value =
+  editPronouns.value =
     data.pronouns || "";
 
-
-  document.getElementById(
-    "editAbout"
-  ).value =
+  editAbout.value =
     data.about || "";
 
-
-  document.getElementById(
-    "editGradient"
-  ).value =
-    data.gradient || "";
-
-
-  document.getElementById(
-    "editBanner"
-  ).value =
-    data.banner || "";
-
-
-  document.getElementById(
-    "editPfp"
-  ).value =
-    data.pfp || "";
-
-
-  document.getElementById(
-    "editDiscord"
-  ).value =
+  editDiscord.value =
     data.discordId || "";
+
+
+  editColor1.value =
+    "#EEBD89";
+
+  editColor2.value =
+    "#D13ABD";
+
+  editDirection.value =
+    "90deg";
+
+
+  if (data.pfp) {
+
+    editPfpPreview.src =
+      data.pfp;
+
+    editPfpPreview.style.display =
+      "block";
+
+  } else {
+
+    editPfpPreview.style.display =
+      "none";
+
+  }
+
+
+  if (data.banner) {
+
+    editBannerPreview.src =
+      data.banner;
+
+    editBannerPreview.style.display =
+      "block";
+
+  } else {
+
+    editBannerPreview.style.display =
+      "none";
+
+  }
+
+
+  updateEditGradient();
 
 }
 
 
-/* =====================================================
-   OPEN EDITOR
-===================================================== */
+/* =========================================
+   OPEN EDIT
+========================================= */
 
 editBtn.addEventListener(
   "click",
@@ -1424,13 +2413,11 @@ editBtn.addEventListener(
 );
 
 
-/* =====================================================
-   CLOSE EDITOR
-===================================================== */
+/* =========================================
+   CLOSE EDIT
+========================================= */
 
-document.getElementById(
-  "cancelEdit"
-).addEventListener(
+cancelEdit.addEventListener(
   "click",
   () => {
 
@@ -1441,13 +2428,11 @@ document.getElementById(
 );
 
 
-/* =====================================================
+/* =========================================
    SAVE EDIT
-===================================================== */
+========================================= */
 
-document.getElementById(
-  "saveEdit"
-).addEventListener(
+saveEdit.addEventListener(
   "click",
   async () => {
 
@@ -1458,69 +2443,141 @@ document.getElementById(
     if (
       !user ||
       !editingUsername
-    ) {
-
+    )
       return;
-
-    }
-
-
-    const profileRef =
-      doc(
-        db,
-        "profiles",
-        editingUsername
-      );
 
 
     try {
 
+      saveEdit.disabled =
+        true;
+
+      saveEdit.textContent =
+        "Saving...";
+
+
+      const profileRef =
+        doc(
+          db,
+          "profiles",
+          editingUsername
+        );
+
+
+      const current =
+        await getDoc(
+          profileRef
+        );
+
+
+      if (!current.exists()) {
+
+        throw new Error(
+          "Profile no longer exists."
+        );
+
+      }
+
+
+      const currentData =
+        current.data();
+
+
       /*
-        Only update fields.
-        Username cannot be changed here.
+        CLIENT-SIDE OWNER CHECK.
       */
+
+      if (
+        currentData.ownerUid !==
+        user.uid
+      ) {
+
+        throw new Error(
+          "You do not own this profile."
+        );
+
+      }
+
+
+      const updates = {
+
+        name:
+          editName.value.trim(),
+
+        pronouns:
+          editPronouns.value.trim(),
+
+        about:
+          editAbout.value,
+
+        gradient:
+          makeGradient(
+            editColor1.value,
+            editColor2.value,
+            editDirection.value
+          ),
+
+        discordId:
+          editDiscord.value.trim()
+
+      };
+
+
+      /*
+        UPLOAD NEW PFP
+      */
+
+      if (
+        editPfpFile.files[0]
+      ) {
+
+        saveEdit.textContent =
+          "Uploading PFP...";
+
+
+        updates.pfp =
+          await uploadImage(
+            editPfpFile.files[0],
+            "profiles/" +
+            user.uid +
+            "/pfp.webp",
+            480
+          );
+
+      }
+
+
+      /*
+        UPLOAD NEW BANNER
+      */
+
+      if (
+        editBannerFile.files[0]
+      ) {
+
+        saveEdit.textContent =
+          "Uploading banner...";
+
+
+        updates.banner =
+          await uploadImage(
+            editBannerFile.files[0],
+            "profiles/" +
+            user.uid +
+            "/banner.webp",
+            1280
+          );
+
+      }
+
+
+      saveEdit.textContent =
+        "Saving...";
+
 
       await setDoc(
         profileRef,
-        {
-
-          name:
-            document.getElementById(
-              "editName"
-            ).value.trim(),
-
-          pronouns:
-            document.getElementById(
-              "editPronouns"
-            ).value.trim(),
-
-          about:
-            document.getElementById(
-              "editAbout"
-            ).value,
-
-          gradient:
-            document.getElementById(
-              "editGradient"
-            ).value.trim(),
-
-          banner:
-            document.getElementById(
-              "editBanner"
-            ).value.trim(),
-
-          pfp:
-            document.getElementById(
-              "editPfp"
-            ).value.trim(),
-
-          discordId:
-            document.getElementById(
-              "editDiscord"
-            ).value.trim()
-
-        },
-
+        updates,
         {
           merge: true
         }
@@ -1532,17 +2589,27 @@ document.getElementById(
 
 
       await loadProfile(
-        editingUsername
+        editingUsername,
+        user
       );
 
 
-    } catch (err) {
+    } catch(error) {
 
-      console.error(err);
+      console.error(error);
 
       alert(
-        "Could not save profile."
+        "Could not save profile:\n\n" +
+        error.message
       );
+
+    } finally {
+
+      saveEdit.disabled =
+        false;
+
+      saveEdit.textContent =
+        "Save";
 
     }
 
@@ -1550,27 +2617,126 @@ document.getElementById(
 );
 
 
-/* =====================================================
-   ESCAPE HTML
-===================================================== */
+/* =========================================
+   SIGN OUT
+========================================= */
 
-function escapeHtml(text) {
+document
+  .getElementById(
+    "createSignOutBtn"
+  )
+  .addEventListener(
+    "click",
+    async () => {
 
-  return String(text)
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
+      await signOut(auth);
 
-}
+      window.location.href =
+        window.location.pathname;
+
+    }
+  );
 
 
-/* =====================================================
-   INITIAL PAGE
-===================================================== */
+/* =========================================
+   AUTH STATE
+========================================= */
+
+onAuthStateChanged(
+  auth,
+  async user => {
+
+    /*
+      If ?user= exists,
+      ALWAYS load that profile.
+
+      No hard-coded username.
+    */
+
+    if (requestedUsername) {
+
+      await loadProfile(
+        requestedUsername,
+        user
+      );
+
+      return;
+
+    }
+
+
+    /*
+      No selected profile.
+    */
+
+    if (!user) {
+
+      hideEverything();
+
+      authPage.style.display =
+        "block";
+
+      return;
+
+    }
+
+
+    /*
+      Logged-in user.
+      Find their profile.
+    */
+
+    try {
+
+      const userRef =
+        doc(
+          db,
+          "users",
+          user.uid
+        );
+
+
+      const userSnapshot =
+        await getDoc(
+          userRef
+        );
+
+
+      if (
+        userSnapshot.exists() &&
+        userSnapshot.data().username
+      ) {
+
+        window.location.href =
+          "?user=" +
+          encodeURIComponent(
+            userSnapshot.data().username
+          );
+
+      } else {
+
+        hideEverything();
+
+        createPage.style.display =
+          "block";
+
+      }
+
+    } catch(error) {
+
+      console.error(error);
+
+      showError(
+        "Could not load account: " +
+        error.message
+      );
+
+    }
+
+  }
+);
 
 </script>
 
 </body>
-  </html>
+</html>
