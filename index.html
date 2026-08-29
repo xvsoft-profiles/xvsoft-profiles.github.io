@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Xvsoft</title>
 
 <style>
@@ -17,9 +18,11 @@ body {
   background: #111214;
   color: white;
   font-family: Arial, sans-serif;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   padding: 18px;
 }
 
@@ -41,15 +44,22 @@ button {
 
 #error {
   display: none;
+
   width: 100%;
   max-width: 430px;
+
   background: #1e1f22;
   color: #ff7777;
+
   padding: 22px;
+
   border-radius: 20px;
+
   text-align: center;
+
   word-break: break-word;
 }
+
 
 /* =========================================
    PANELS
@@ -57,42 +67,62 @@ button {
 
 .panel {
   display: none;
+
   width: 100%;
   max-width: 460px;
+
   background: #1e1f22;
+
   border-radius: 24px;
+
   padding: 26px;
-  box-shadow: 0 20px 60px rgba(0,0,0,.55);
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.55);
 }
 
 .logo {
   font-size: 30px;
   font-weight: 700;
+
   margin-bottom: 5px;
 }
 
 .subtitle {
   color: #999;
   line-height: 1.5;
+
   margin-bottom: 22px;
 }
 
 label {
   display: block;
+
   color: #b8bbc5;
+
   font-size: .85rem;
-  margin: 14px 0 6px;
+
+  margin:
+    14px
+    0
+    6px;
 }
 
 input,
 textarea,
 select {
   width: 100%;
+
   border: 1px solid #3a3d45;
+
   background: #2b2d31;
+
   color: white;
+
   padding: 11px 13px;
+
   border-radius: 12px;
+
   outline: none;
 }
 
@@ -104,17 +134,25 @@ select:focus {
 
 textarea {
   min-height: 100px;
+
   resize: vertical;
 }
 
 .primary {
   width: 100%;
+
   border: 0;
+
   background: #5865F2;
+
   color: white;
+
   padding: 13px;
+
   border-radius: 30px;
+
   font-weight: 600;
+
   margin-top: 20px;
 }
 
@@ -124,26 +162,38 @@ textarea {
 
 .primary:disabled {
   opacity: .6;
+
   cursor: wait;
 }
 
 .secondary {
   width: 100%;
+
   border: 0;
+
   background: #3a3d45;
+
   color: white;
+
   padding: 13px;
+
   border-radius: 30px;
+
   font-weight: 600;
+
   margin-top: 10px;
 }
 
 .small-error {
   color: #ff7777;
+
   font-size: .85rem;
+
   margin-top: 10px;
+
   min-height: 18px;
 }
+
 
 /* =========================================
    AUTH
@@ -151,27 +201,40 @@ textarea {
 
 .tabs {
   display: flex;
+
   gap: 5px;
+
   padding: 4px;
+
   background: #151619;
+
   border-radius: 14px;
+
   margin-bottom: 20px;
 }
 
 .tabs button {
   flex: 1;
+
   border: 0;
+
   background: transparent;
+
   color: #999;
+
   padding: 10px;
+
   border-radius: 10px;
+
   font-weight: 600;
 }
 
 .tabs button.active {
   background: #5865F2;
+
   color: white;
 }
+
 
 /* =========================================
    PROFILE
@@ -179,17 +242,29 @@ textarea {
 
 .profile {
   display: none;
+
   width: 100%;
+
   max-width: 400px;
+
   border-radius: 24px;
+
   overflow: hidden;
+
   text-align: center;
-  box-shadow: 0 15px 40px rgba(0,0,0,.55);
+
+  box-shadow:
+    0 15px 40px rgba(0,0,0,.55);
 }
 
 .banner {
   height: 0;
-  background: none center / cover no-repeat;
+
+  background:
+    none
+    center / cover
+    no-repeat;
+
   position: relative;
 }
 
@@ -200,32 +275,50 @@ textarea {
 .pfp {
   width: 110px;
   height: 110px;
+
   border-radius: 50%;
+
   border: 5px solid #1e1f22;
+
   position: absolute;
+
   left: 50%;
+
   bottom: -55px;
-  transform: translateX(-50%);
+
+  transform:
+    translateX(-50%);
+
   background: #2b2d31;
+
   object-fit: cover;
 }
 
 .banner:not(.has-banner) .pfp {
   top: 20px;
+
   bottom: auto;
 }
 
 .content {
-  padding: 70px 20px 25px;
+  padding:
+    70px
+    20px
+    25px;
 }
 
-.banner:not(.has-banner) + .content {
-  padding-top: 145px;
+.banner:not(.has-banner)
++ .content {
+
+  padding-top:
+    145px;
 }
 
 .name {
   font-size: 1.7rem;
+
   font-weight: 600;
+
   margin-bottom: 5px;
 }
 
@@ -234,24 +327,42 @@ textarea {
 }
 
 .about {
-  background: rgba(0,0,0,.25);
-  backdrop-filter: blur(30px);
+  background:
+    rgba(0,0,0,.25);
+
+  backdrop-filter:
+    blur(30px);
+
   border-radius: 16px;
-  padding: 12px 16px;
+
+  padding:
+    12px
+    16px;
+
   font-size: .9rem;
+
   line-height: 1.6;
+
   text-align: left;
+
   white-space: pre-line;
+
   word-break: break-word;
 }
 
 .message-btn {
   display: inline-block;
+
   margin-top: 18px;
+
   padding: 14px;
+
   border-radius: 50%;
+
   background: #5865F2;
-  transition: transform .15s;
+
+  transition:
+    transform .15s;
 }
 
 .message-btn:hover {
@@ -261,48 +372,89 @@ textarea {
 .message-btn img {
   width: 28px;
   height: 28px;
+
   display: block;
 }
 
+
 /* =========================================
-   EDIT
+   EDIT BUTTON
 ========================================= */
 
 #editBtn {
   display: none;
+
   position: fixed;
+
   top: 16px;
   right: 16px;
+
   z-index: 50;
-  border: 1px solid #4e5058;
-  background: rgba(30,31,34,.92);
+
+  border:
+    1px solid
+    #4e5058;
+
+  background:
+    rgba(30,31,34,.92);
+
   color: white;
-  padding: 9px 17px;
+
+  padding:
+    9px
+    17px;
+
   border-radius: 30px;
-  backdrop-filter: blur(10px);
+
+  backdrop-filter:
+    blur(10px);
 }
+
+
+/* =========================================
+   EDIT MODAL
+========================================= */
 
 #editModal {
   display: none;
+
   position: fixed;
+
   inset: 0;
+
   z-index: 100;
-  background: rgba(0,0,0,.72);
-  backdrop-filter: blur(8px);
+
+  background:
+    rgba(0,0,0,.72);
+
+  backdrop-filter:
+    blur(8px);
+
   justify-content: center;
+
   align-items: center;
+
   padding: 18px;
 }
 
 .modal-box {
   width: 100%;
+
   max-width: 470px;
+
   max-height: 90vh;
+
   overflow-y: auto;
+
   background: #1e1f22;
+
   border-radius: 22px;
+
   padding: 24px;
-  box-shadow: 0 20px 50px rgba(0,0,0,.8);
+
+  box-shadow:
+    0 20px 50px
+    rgba(0,0,0,.8);
 }
 
 .modal-box h2 {
@@ -311,65 +463,79 @@ textarea {
 
 .actions {
   display: flex;
+
   gap: 10px;
+
   margin-top: 20px;
 }
 
 .actions button {
   flex: 1;
+
   border: 0;
+
   padding: 12px;
+
   border-radius: 30px;
+
   font-weight: 600;
 }
 
 .save {
   background: #5865F2;
+
   color: white;
 }
 
 .cancel {
   background: #3a3d45;
+
   color: white;
 }
 
+
 /* =========================================
-   UPLOADS
+   PREVIEWS
 ========================================= */
 
-.upload-box {
-  background: #151619;
-  border: 1px dashed #4a4d57;
-  border-radius: 16px;
-  padding: 12px;
-  margin-top: 8px;
-  text-align: center;
-}
-
-.upload-box input[type="file"] {
-  border: 0;
-  background: transparent;
-  padding: 6px;
-}
-
-.image-preview {
+.preview-banner {
   display: none;
+
   width: 100%;
-  max-height: 180px;
-  object-fit: contain;
-  border-radius: 12px;
+
+  height: 150px;
+
   margin-top: 12px;
-  background: #111214;
+
+  border-radius: 14px;
+
+  background:
+    center / cover
+    no-repeat;
+
+  background-color:
+    #111214;
+
+  border:
+    1px solid
+    #3a3d45;
 }
 
-.pfp-preview {
+.preview-pfp {
   display: none;
-  width: 110px;
-  height: 110px;
+
+  width: 100px;
+  height: 100px;
+
   border-radius: 50%;
+
   object-fit: cover;
-  margin: 12px auto 0;
+
+  margin:
+    12px
+    auto;
 }
+
 
 /* =========================================
    GRADIENT
@@ -377,62 +543,112 @@ textarea {
 
 .color-row {
   display: flex;
+
   gap: 10px;
+
   margin-bottom: 10px;
 }
 
 .color-input {
   height: 45px;
+
   padding: 3px;
 }
 
 .gradient-preview {
   width: 100%;
+
   height: 75px;
+
   border-radius: 14px;
+
   margin-top: 12px;
-  border: 1px solid #3a3d45;
+
+  border:
+    1px solid
+    #3a3d45;
+}
+
+
+/* =========================================
+   URL HELP
+========================================= */
+
+.url-help {
+  color: #777;
+
+  font-size: .75rem;
+
+  margin-top: 5px;
+
+  line-height: 1.4;
 }
 </style>
 </head>
 
+
 <body>
+
+
+<!-- =========================================
+     LOADING
+========================================= -->
 
 <div id="loading">
   Loading Xvsoft...
 </div>
 
+
+<!-- =========================================
+     ERROR
+========================================= -->
+
 <div id="error"></div>
 
 
 <!-- =========================================
-     AUTH
+     AUTH PAGE
 ========================================= -->
 
-<div id="authPage" class="panel">
+<div
+  id="authPage"
+  class="panel"
+>
 
-  <div class="logo">Xvsoft</div>
+  <div class="logo">
+    Xvsoft
+  </div>
 
   <div class="subtitle">
     Sign in or create your Xvsoft account.
   </div>
 
+
   <div class="tabs">
 
-    <button id="loginTab" class="active">
+    <button
+      id="loginTab"
+      class="active"
+    >
       Login
     </button>
 
-    <button id="registerTab">
+    <button
+      id="registerTab"
+    >
       Create Account
     </button>
 
   </div>
 
 
+  <!-- LOGIN -->
+
   <div id="loginForm">
 
-    <label>Email</label>
+    <label>
+      Email
+    </label>
 
     <input
       id="loginEmail"
@@ -441,7 +657,10 @@ textarea {
       placeholder="you@example.com"
     >
 
-    <label>Password</label>
+
+    <label>
+      Password
+    </label>
 
     <input
       id="loginPassword"
@@ -450,16 +669,27 @@ textarea {
       placeholder="Password"
     >
 
-    <button id="loginBtn" class="primary">
+
+    <button
+      id="loginBtn"
+      class="primary"
+    >
       Sign In
     </button>
 
   </div>
 
 
-  <div id="registerForm" style="display:none">
+  <!-- REGISTER -->
 
-    <label>Email</label>
+  <div
+    id="registerForm"
+    style="display:none"
+  >
+
+    <label>
+      Email
+    </label>
 
     <input
       id="registerEmail"
@@ -468,7 +698,10 @@ textarea {
       placeholder="you@example.com"
     >
 
-    <label>Password</label>
+
+    <label>
+      Password
+    </label>
 
     <input
       id="registerPassword"
@@ -477,14 +710,21 @@ textarea {
       placeholder="At least 6 characters"
     >
 
-    <button id="registerBtn" class="primary">
+
+    <button
+      id="registerBtn"
+      class="primary"
+    >
       Create Account
     </button>
 
   </div>
 
 
-  <div id="authMessage" class="small-error"></div>
+  <div
+    id="authMessage"
+    class="small-error"
+  ></div>
 
 </div>
 
@@ -493,7 +733,10 @@ textarea {
      CREATE PROFILE
 ========================================= -->
 
-<div id="createPage" class="panel">
+<div
+  id="createPage"
+  class="panel"
+>
 
   <div class="logo">
     Create Profile
@@ -504,7 +747,9 @@ textarea {
   </div>
 
 
-  <label>Username</label>
+  <label>
+    Username
+  </label>
 
   <input
     id="newUsername"
@@ -513,7 +758,9 @@ textarea {
   >
 
 
-  <label>Display Name</label>
+  <label>
+    Display Name
+  </label>
 
   <input
     id="newName"
@@ -522,7 +769,9 @@ textarea {
   >
 
 
-  <label>Pronouns</label>
+  <label>
+    Pronouns
+  </label>
 
   <input
     id="newPronouns"
@@ -530,7 +779,9 @@ textarea {
   >
 
 
-  <label>About</label>
+  <label>
+    About
+  </label>
 
   <textarea
     id="newAbout"
@@ -538,7 +789,11 @@ textarea {
   ></textarea>
 
 
-  <label>Gradient</label>
+  <!-- GRADIENT -->
+
+  <label>
+    Gradient
+  </label>
 
   <div class="color-row">
 
@@ -586,45 +841,58 @@ textarea {
   ></div>
 
 
-  <label>Banner</label>
+  <!-- PFP -->
 
-  <div class="upload-box">
+  <label>
+    Profile Picture URL
+  </label>
 
-    <input
-      id="newBannerFile"
-      type="file"
-      accept="image/*"
-    >
+  <input
+    id="newPfpUrl"
+    type="url"
+    placeholder="https://example.com/pfp.png"
+  >
 
-    <img
-      id="newBannerPreview"
-      class="image-preview"
-      alt="Banner preview"
-    >
-
+  <div class="url-help">
+    PNG, JPG, WEBP, GIF and other browser-supported image URLs.
   </div>
 
 
-  <label>Profile Picture</label>
+  <img
+    id="newPfpPreview"
+    class="preview-pfp"
+    alt="PFP preview"
+  >
 
-  <div class="upload-box">
 
-    <input
-      id="newPfpFile"
-      type="file"
-      accept="image/*"
-    >
+  <!-- BANNER -->
 
-    <img
-      id="newPfpPreview"
-      class="pfp-preview"
-      alt="PFP preview"
-    >
+  <label>
+    Banner URL
+  </label>
 
+  <input
+    id="newBannerUrl"
+    type="url"
+    placeholder="https://example.com/banner.gif"
+  >
+
+  <div class="url-help">
+    GIF banners are supported and remain animated.
   </div>
 
 
-  <label>Discord ID</label>
+  <div
+    id="newBannerPreview"
+    class="preview-banner"
+  ></div>
+
+
+  <!-- DISCORD -->
+
+  <label>
+    Discord ID
+  </label>
 
   <input
     id="newDiscord"
@@ -681,11 +949,22 @@ textarea {
 
   <div class="content">
 
-    <h2 id="name" class="name"></h2>
+    <h2
+      id="name"
+      class="name"
+    ></h2>
 
-    <p id="pronouns" class="pronouns"></p>
 
-    <div id="about" class="about"></div>
+    <p
+      id="pronouns"
+      class="pronouns"
+    ></p>
+
+
+    <div
+      id="about"
+      class="about"
+    ></div>
 
 
     <a
@@ -707,7 +986,13 @@ textarea {
 </div>
 
 
-<button id="editBtn">
+<!-- =========================================
+     EDIT BUTTON
+========================================= -->
+
+<button
+  id="editBtn"
+>
   ✎ Edit Profile
 </button>
 
@@ -716,14 +1001,20 @@ textarea {
      EDIT MODAL
 ========================================= -->
 
-<div id="editModal">
+<div
+  id="editModal"
+>
 
   <div class="modal-box">
 
-    <h2>Edit Profile</h2>
+    <h2>
+      Edit Profile
+    </h2>
 
 
-    <label>Username</label>
+    <label>
+      Username
+    </label>
 
     <input
       id="editUsername"
@@ -731,7 +1022,9 @@ textarea {
     >
 
 
-    <label>Display Name</label>
+    <label>
+      Display Name
+    </label>
 
     <input
       id="editName"
@@ -739,17 +1032,29 @@ textarea {
     >
 
 
-    <label>Pronouns</label>
+    <label>
+      Pronouns
+    </label>
 
-    <input id="editPronouns">
+    <input
+      id="editPronouns"
+    >
 
 
-    <label>About</label>
+    <label>
+      About
+    </label>
 
-    <textarea id="editAbout"></textarea>
+    <textarea
+      id="editAbout"
+    ></textarea>
 
 
-    <label>Gradient</label>
+    <!-- GRADIENT -->
+
+    <label>
+      Gradient
+    </label>
 
     <div class="color-row">
 
@@ -795,47 +1100,52 @@ textarea {
     ></div>
 
 
-    <label>Banner</label>
+    <!-- PFP -->
 
-    <div class="upload-box">
+    <label>
+      Profile Picture URL
+    </label>
 
-      <input
-        id="editBannerFile"
-        type="file"
-        accept="image/*"
-      >
-
-      <img
-        id="editBannerPreview"
-        class="image-preview"
-        alt="Banner preview"
-      >
-
-    </div>
+    <input
+      id="editPfpUrl"
+      type="url"
+      placeholder="https://example.com/pfp.png"
+    >
 
 
-    <label>Profile Picture</label>
-
-    <div class="upload-box">
-
-      <input
-        id="editPfpFile"
-        type="file"
-        accept="image/*"
-      >
-
-      <img
-        id="editPfpPreview"
-        class="pfp-preview"
-        alt="PFP preview"
-      >
-
-    </div>
+    <img
+      id="editPfpPreview"
+      class="preview-pfp"
+      alt="PFP preview"
+    >
 
 
-    <label>Discord ID</label>
+    <!-- BANNER -->
 
-    <input id="editDiscord">
+    <label>
+      Banner URL
+    </label>
+
+    <input
+      id="editBannerUrl"
+      type="url"
+      placeholder="https://example.com/banner.gif"
+    >
+
+
+    <div
+      id="editBannerPreview"
+      class="preview-banner"
+    ></div>
+
+
+    <label>
+      Discord ID
+    </label>
+
+    <input
+      id="editDiscord"
+    >
 
 
     <div class="actions">
@@ -863,13 +1173,15 @@ textarea {
 
 <script type="module">
 
+
 /* =========================================
    FIREBASE
 ========================================= */
 
 import {
   initializeApp
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
 
 
@@ -879,7 +1191,8 @@ import {
   getDoc,
   setDoc,
   runTransaction
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
 
 
@@ -890,17 +1203,9 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged
-} from
+}
+from
 "https://www.gstatic.com/firebasejs/12.18.0/firebase-auth.js";
-
-
-import {
-  getStorage,
-  ref,
-  uploadBytes,
-  getDownloadURL
-} from
-"https://www.gstatic.com/firebasejs/12.18.0/firebase-storage.js";
 
 
 /* =========================================
@@ -918,9 +1223,6 @@ const firebaseConfig = {
   projectId:
     "user-27e98",
 
-  storageBucket:
-    "user-27e98.firebasestorage.app",
-
   messagingSenderId:
     "923349378940",
 
@@ -934,7 +1236,9 @@ const firebaseConfig = {
 
 
 const app =
-  initializeApp(firebaseConfig);
+  initializeApp(
+    firebaseConfig
+  );
 
 
 const auth =
@@ -949,10 +1253,6 @@ const auth =
 
 const db =
   getFirestore(app);
-
-
-const storage =
-  getStorage(app);
 
 
 /* =========================================
@@ -973,29 +1273,43 @@ const requestedUsername =
 ========================================= */
 
 const loading =
-  document.getElementById("loading");
+  document.getElementById(
+    "loading"
+  );
 
 const errorBox =
-  document.getElementById("error");
+  document.getElementById(
+    "error"
+  );
 
 const authPage =
-  document.getElementById("authPage");
+  document.getElementById(
+    "authPage"
+  );
 
 const createPage =
-  document.getElementById("createPage");
+  document.getElementById(
+    "createPage"
+  );
 
 const profile =
-  document.getElementById("profile");
+  document.getElementById(
+    "profile"
+  );
 
 const editBtn =
-  document.getElementById("editBtn");
+  document.getElementById(
+    "editBtn"
+  );
 
 const editModal =
-  document.getElementById("editModal");
+  document.getElementById(
+    "editModal"
+  );
 
 
 /* =========================================
-   HELPERS
+   HIDE EVERYTHING
 ========================================= */
 
 function hideEverything() {
@@ -1021,7 +1335,13 @@ function hideEverything() {
 }
 
 
-function showError(message) {
+/* =========================================
+   ERROR
+========================================= */
+
+function showError(
+  message
+) {
 
   hideEverything();
 
@@ -1082,304 +1402,67 @@ function updateEditGradient() {
 
 
 /* =========================================
-   IMAGE PROCESSING
-========================================= */
-
-async function processImage(
-  file,
-  maxDimension
-) {
-
-  if (!file)
-    return null;
-
-
-  return new Promise(
-    (resolve, reject) => {
-
-      const reader =
-        new FileReader();
-
-      const image =
-        new Image();
-
-
-      reader.onload =
-        event => {
-
-          image.src =
-            event.target.result;
-
-        };
-
-
-      reader.onerror =
-        () => reject(
-          new Error(
-            "Could not read image."
-          )
-        );
-
-
-      image.onload =
-        () => {
-
-          let width =
-            image.naturalWidth;
-
-          let height =
-            image.naturalHeight;
-
-
-          const scale =
-            Math.min(
-              1,
-              maxDimension /
-              Math.max(
-                width,
-                height
-              )
-            );
-
-
-          width =
-            Math.round(
-              width * scale
-            );
-
-          height =
-            Math.round(
-              height * scale
-            );
-
-
-          const canvas =
-            document.createElement(
-              "canvas"
-            );
-
-
-          canvas.width =
-            width;
-
-          canvas.height =
-            height;
-
-
-          const context =
-            canvas.getContext(
-              "2d"
-            );
-
-
-          context.drawImage(
-            image,
-            0,
-            0,
-            width,
-            height
-          );
-
-
-          canvas.toBlob(
-            blob => {
-
-              if (!blob) {
-
-                reject(
-                  new Error(
-                    "Could not compress image."
-                  )
-                );
-
-                return;
-
-              }
-
-              resolve(blob);
-
-            },
-            "image/webp",
-            0.85
-          );
-
-        };
-
-
-      image.onerror =
-        () => reject(
-          new Error(
-            "Invalid image."
-          )
-        );
-
-
-      reader.readAsDataURL(file);
-
-    }
-  );
-
-}
-
-
-/* =========================================
-   UPLOAD TO FIREBASE STORAGE
-========================================= */
-
-async function uploadImage(
-  file,
-  path,
-  maxDimension
-) {
-
-  if (!file)
-    return "";
-
-
-  const blob =
-    await processImage(
-      file,
-      maxDimension
-    );
-
-
-  /*
-    ACTUAL IMAGE FILE goes here.
-    Firestore does NOT store the image.
-  */
-
-  const storageRef =
-    ref(
-      storage,
-      path
-    );
-
-
-  await uploadBytes(
-    storageRef,
-    blob,
-    {
-      contentType:
-        "image/webp"
-    }
-  );
-
-
-  /*
-    Firestore stores this URL,
-    which points back to the actual
-    image in Firebase Storage.
-  */
-
-  return await getDownloadURL(
-    storageRef
-  );
-
-}
-
-
-/* =========================================
-   PREVIEWS
-========================================= */
-
-function setupPreview(
-  input,
-  preview,
-  maxDimension
-) {
-
-  input.addEventListener(
-    "change",
-    async () => {
-
-      const file =
-        input.files[0];
-
-      if (!file)
-        return;
-
-
-      try {
-
-        const blob =
-          await processImage(
-            file,
-            maxDimension
-          );
-
-
-        preview.src =
-          URL.createObjectURL(
-            blob
-          );
-
-
-        preview.style.display =
-          "block";
-
-
-      } catch (error) {
-
-        alert(
-          error.message
-        );
-
-      }
-
-    }
-  );
-
-}
-
-
-/* =========================================
-   CREATE ELEMENT REFERENCES
+   ELEMENT REFERENCES
 ========================================= */
 
 const newUsername =
-  document.getElementById("newUsername");
+  document.getElementById(
+    "newUsername"
+  );
 
 const newName =
-  document.getElementById("newName");
+  document.getElementById(
+    "newName"
+  );
 
 const newPronouns =
-  document.getElementById("newPronouns");
+  document.getElementById(
+    "newPronouns"
+  );
 
 const newAbout =
-  document.getElementById("newAbout");
+  document.getElementById(
+    "newAbout"
+  );
 
 const newColor1 =
-  document.getElementById("newColor1");
+  document.getElementById(
+    "newColor1"
+  );
 
 const newColor2 =
-  document.getElementById("newColor2");
+  document.getElementById(
+    "newColor2"
+  );
 
 const newDirection =
-  document.getElementById("newDirection");
+  document.getElementById(
+    "newDirection"
+  );
 
 const newGradientPreview =
   document.getElementById(
     "newGradientPreview"
   );
 
-const newBannerFile =
+const newPfpUrl =
   document.getElementById(
-    "newBannerFile"
-  );
-
-const newBannerPreview =
-  document.getElementById(
-    "newBannerPreview"
-  );
-
-const newPfpFile =
-  document.getElementById(
-    "newPfpFile"
+    "newPfpUrl"
   );
 
 const newPfpPreview =
   document.getElementById(
     "newPfpPreview"
+  );
+
+const newBannerUrl =
+  document.getElementById(
+    "newBannerUrl"
+  );
+
+const newBannerPreview =
+  document.getElementById(
+    "newBannerPreview"
   );
 
 const newDiscord =
@@ -1525,24 +1608,24 @@ const editGradientPreview =
     "editGradientPreview"
   );
 
-const editBannerFile =
+const editPfpUrl =
   document.getElementById(
-    "editBannerFile"
-  );
-
-const editBannerPreview =
-  document.getElementById(
-    "editBannerPreview"
-  );
-
-const editPfpFile =
-  document.getElementById(
-    "editPfpFile"
+    "editPfpUrl"
   );
 
 const editPfpPreview =
   document.getElementById(
     "editPfpPreview"
+  );
+
+const editBannerUrl =
+  document.getElementById(
+    "editBannerUrl"
+  );
+
+const editBannerPreview =
+  document.getElementById(
+    "editBannerPreview"
   );
 
 const editDiscord =
@@ -1562,33 +1645,138 @@ const cancelEdit =
 
 
 /* =========================================
-   SETUP
+   IMAGE URL PREVIEWS
 ========================================= */
 
-setupPreview(
-  newBannerFile,
-  newBannerPreview,
-  1280
+newPfpUrl.addEventListener(
+  "input",
+  () => {
+
+    const url =
+      newPfpUrl.value.trim();
+
+
+    if (!url) {
+
+      newPfpPreview.style.display =
+        "none";
+
+      newPfpPreview.removeAttribute(
+        "src"
+      );
+
+      return;
+
+    }
+
+
+    newPfpPreview.src =
+      url;
+
+    newPfpPreview.style.display =
+      "block";
+
+  }
 );
 
-setupPreview(
-  newPfpFile,
-  newPfpPreview,
-  480
+
+newBannerUrl.addEventListener(
+  "input",
+  () => {
+
+    const url =
+      newBannerUrl.value.trim();
+
+
+    if (!url) {
+
+      newBannerPreview.style.display =
+        "none";
+
+      newBannerPreview.style.backgroundImage =
+        "none";
+
+      return;
+
+    }
+
+
+    newBannerPreview.style.backgroundImage =
+      `url("${url}")`;
+
+    newBannerPreview.style.display =
+      "block";
+
+  }
 );
 
-setupPreview(
-  editBannerFile,
-  editBannerPreview,
-  1280
+
+editPfpUrl.addEventListener(
+  "input",
+  () => {
+
+    const url =
+      editPfpUrl.value.trim();
+
+
+    if (!url) {
+
+      editPfpPreview.style.display =
+        "none";
+
+      editPfpPreview.removeAttribute(
+        "src"
+      );
+
+      return;
+
+    }
+
+
+    editPfpPreview.src =
+      url;
+
+    editPfpPreview.style.display =
+      "block";
+
+  }
 );
 
-setupPreview(
-  editPfpFile,
-  editPfpPreview,
-  480
+
+editBannerUrl.addEventListener(
+  "input",
+  () => {
+
+    const url =
+      editBannerUrl.value.trim();
+
+
+    if (!url) {
+
+      editBannerPreview.style.display =
+        "none";
+
+      editBannerPreview.style.backgroundImage =
+        "none";
+
+      return;
+
+    }
+
+
+    editBannerPreview.style.backgroundImage =
+      `url("${url}")`;
+
+    editBannerPreview.style.display =
+      "block";
+
+  }
 );
 
+
+/* =========================================
+   GRADIENT EVENTS
+========================================= */
 
 newColor1.addEventListener(
   "input",
@@ -1678,10 +1866,12 @@ registerTab.addEventListener(
 
 
 /* =========================================
-   AUTH ERROR
+   AUTH ERRORS
 ========================================= */
 
-function authErrorMessage(code) {
+function authErrorMessage(
+  code
+) {
 
   switch(code) {
 
@@ -1733,13 +1923,15 @@ loginBtn.addEventListener(
 
 
       authMessage.textContent =
-        "Account saved";
+        "Account saved ✓";
 
       authMessage.style.color =
         "#57f287";
 
 
     } catch(error) {
+
+      console.error(error);
 
       authMessage.textContent =
         authErrorMessage(
@@ -1788,13 +1980,15 @@ registerBtn.addEventListener(
 
 
       authMessage.textContent =
-        "Account saved";
+        "Account saved ✓";
 
       authMessage.style.color =
         "#57f287";
 
 
     } catch(error) {
+
+      console.error(error);
 
       authMessage.textContent =
         authErrorMessage(
@@ -1864,7 +2058,7 @@ createProfileBtn.addEventListener(
         true;
 
       createProfileBtn.textContent =
-        "Uploading images...";
+        "Saving profile...";
 
 
       const profileRef =
@@ -1884,17 +2078,18 @@ createProfileBtn.addEventListener(
 
 
       /*
-        CHECK EVERYTHING BEFORE
-        UPLOADING.
+        Check whether the username
+        already exists.
       */
 
-      const existingProfile =
+      const profileCheck =
         await getDoc(
           profileRef
         );
 
+
       if (
-        existingProfile.exists()
+        profileCheck.exists()
       ) {
 
         throw new Error(
@@ -1904,14 +2099,20 @@ createProfileBtn.addEventListener(
       }
 
 
-      const existingUser =
+      /*
+        Check whether this Firebase
+        account already owns a profile.
+      */
+
+      const userCheck =
         await getDoc(
           userRef
         );
 
+
       if (
-        existingUser.exists() &&
-        existingUser.data().username
+        userCheck.exists() &&
+        userCheck.data().username
       ) {
 
         throw new Error(
@@ -1922,61 +2123,9 @@ createProfileBtn.addEventListener(
 
 
       /*
-        UPLOAD THE ACTUAL FILES.
+        Save profile.
+        Images are simply URLs.
       */
-
-      let pfpUrl = "";
-
-      let bannerUrl = "";
-
-
-      if (
-        newPfpFile.files[0]
-      ) {
-
-        createProfileBtn.textContent =
-          "Uploading profile picture...";
-
-
-        pfpUrl =
-          await uploadImage(
-            newPfpFile.files[0],
-            "profiles/" +
-            user.uid +
-            "/pfp.webp",
-            480
-          );
-
-      }
-
-
-      if (
-        newBannerFile.files[0]
-      ) {
-
-        createProfileBtn.textContent =
-          "Uploading banner...";
-
-
-        bannerUrl =
-          await uploadImage(
-            newBannerFile.files[0],
-            "profiles/" +
-            user.uid +
-            "/banner.webp",
-            1280
-          );
-
-      }
-
-
-      /*
-        ONLY NOW CREATE FIRESTORE DATA.
-      */
-
-      createProfileBtn.textContent =
-        "Saving profile...";
-
 
       await runTransaction(
         db,
@@ -2043,17 +2192,11 @@ createProfileBtn.addEventListener(
               discordId:
                 newDiscord.value.trim(),
 
-              /*
-                These are URLs pointing
-                to the actual files in
-                Firebase Storage.
-              */
-
               pfp:
-                pfpUrl,
+                newPfpUrl.value.trim(),
 
               banner:
-                bannerUrl
+                newBannerUrl.value.trim()
 
             }
           );
@@ -2062,8 +2205,10 @@ createProfileBtn.addEventListener(
           transaction.set(
             userRef,
             {
+
               username:
                 username
+
             }
           );
 
@@ -2072,12 +2217,11 @@ createProfileBtn.addEventListener(
 
 
       /*
-        EVERYTHING succeeded.
+        SUCCESS
       */
 
       createProfileBtn.textContent =
         "Account saved ✓";
-
 
       createProfileBtn.style.background =
         "#3ba55d";
@@ -2323,7 +2467,8 @@ async function loadProfile(
    EDITOR
 ========================================= */
 
-let editingUsername = null;
+let editingUsername =
+  null;
 
 
 function prepareEditor(
@@ -2350,6 +2495,18 @@ function prepareEditor(
   editDiscord.value =
     data.discordId || "";
 
+  editPfpUrl.value =
+    data.pfp || "";
+
+  editBannerUrl.value =
+    data.banner || "";
+
+
+  /*
+    Default colors.
+    Existing gradient is preserved
+    in the profile itself.
+  */
 
   editColor1.value =
     "#EEBD89";
@@ -2379,8 +2536,8 @@ function prepareEditor(
 
   if (data.banner) {
 
-    editBannerPreview.src =
-      data.banner;
+    editBannerPreview.style.backgroundImage =
+      `url("${data.banner}")`;
 
     editBannerPreview.style.display =
       "block";
@@ -2484,7 +2641,7 @@ saveEdit.addEventListener(
 
 
       /*
-        CLIENT-SIDE OWNER CHECK.
+        Owner security check.
       */
 
       if (
@@ -2518,61 +2675,15 @@ saveEdit.addEventListener(
           ),
 
         discordId:
-          editDiscord.value.trim()
+          editDiscord.value.trim(),
+
+        pfp:
+          editPfpUrl.value.trim(),
+
+        banner:
+          editBannerUrl.value.trim()
 
       };
-
-
-      /*
-        UPLOAD NEW PFP
-      */
-
-      if (
-        editPfpFile.files[0]
-      ) {
-
-        saveEdit.textContent =
-          "Uploading PFP...";
-
-
-        updates.pfp =
-          await uploadImage(
-            editPfpFile.files[0],
-            "profiles/" +
-            user.uid +
-            "/pfp.webp",
-            480
-          );
-
-      }
-
-
-      /*
-        UPLOAD NEW BANNER
-      */
-
-      if (
-        editBannerFile.files[0]
-      ) {
-
-        saveEdit.textContent =
-          "Uploading banner...";
-
-
-        updates.banner =
-          await uploadImage(
-            editBannerFile.files[0],
-            "profiles/" +
-            user.uid +
-            "/banner.webp",
-            1280
-          );
-
-      }
-
-
-      saveEdit.textContent =
-        "Saving...";
 
 
       await setDoc(
@@ -2629,7 +2740,9 @@ document
     "click",
     async () => {
 
-      await signOut(auth);
+      await signOut(
+        auth
+      );
 
       window.location.href =
         window.location.pathname;
@@ -2647,10 +2760,8 @@ onAuthStateChanged(
   async user => {
 
     /*
-      If ?user= exists,
-      ALWAYS load that profile.
-
-      No hard-coded username.
+      If a profile is explicitly
+      requested, load it.
     */
 
     if (requestedUsername) {
@@ -2666,7 +2777,7 @@ onAuthStateChanged(
 
 
     /*
-      No selected profile.
+      Not logged in.
     */
 
     if (!user) {
@@ -2682,8 +2793,9 @@ onAuthStateChanged(
 
 
     /*
-      Logged-in user.
-      Find their profile.
+      Logged in.
+      Check whether they have
+      an Xvsoft profile.
     */
 
     try {
@@ -2707,10 +2819,14 @@ onAuthStateChanged(
         userSnapshot.data().username
       ) {
 
+        const username =
+          userSnapshot.data().username;
+
+
         window.location.href =
           "?user=" +
           encodeURIComponent(
-            userSnapshot.data().username
+            username
           );
 
       } else {
