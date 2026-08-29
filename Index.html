@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Xvsoft Profile</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: #111214;
+      color: white;
+      font-family: Arial, sans-serif;
+
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      padding: 16px;
+    }
+
+    #loading {
+      color: #aaa;
+      font-size: 18px;
+    }
+
+    #error {
+      display: none;
+
+      max-width: 420px;
+
+      background: #1e1f22;
+      color: #ff7777;
+
+      padding: 20px;
+
+      border-radius: 16px;
+
+      text-align: center;
+    }
+
+    .profile {
+      display: none;
+
+      width: 100%;
+      max-width: 400px;
+
+      background:
+        linear-gradient(280deg, #EEBD89, #D13ABD);
+
+      border-radius: 24px;
+
+      overflow: hidden;
+
+      text-align: center;
+
+      box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.6);
+    }
+
+    .banner {
+      height: 200px;
+
+      background:
+        #2b2d31
+        center / cover
+        no-repeat;
+
+      position: relative;
+    }
+
+    .pfp {
+      width: 110px;
+      height: 110px;
+
+      border-radius: 50%;
+
+      border: 5px solid #1e1f22;
+
+      position: absolute;
+
+      bottom: -55px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      background: #2b2d31;
+
+      object-fit: cover;
+    }
+
+    .content {
+      padding: 70px 20px 25px;
+    }
+
+    .name {
+      font-size: 1.7rem;
+
+      font-weight: 600;
+
+      margin-bottom: 4px;
+    }
+
+    .pronouns {
+      font-size: 1rem;
+
+      color: white;
+
+      margin-bottom: 12px;
+    }
+
+    .about {
+      background: rgba(0, 0, 0, 0.25);
+
+      backdrop-filter: blur(30px);
+
+      border-radius: 16px;
+
+      padding: 10px 16px 14px;
+
+      font-size: 0.9rem;
+
+      line-height: 1.6;
+
+      color: #f0f0f0;
+
+      text-align: left;
+
+      white-space: pre-line;
+
+      word-break: break-word;
+    }
+
+    .about a {
+      color: #9aa9ff;
+    }
+
+    .message-btn {
+      display: inline-block;
+
+      background: #5865F2;
+
+      border-radius: 50%;
+
+      padding: 14px;
+
+      margin-top: 18px;
+
+      transition:
+        transform 0.15s,
+        box-shadow 0.2s;
+    }
+
+    .message-btn:hover {
+      transform: scale(1.05);
+
+      box-shadow:
+        0 6px 16px
+        rgba(88, 101, 242, 0.5);
+    }
+
+    .message-btn img {
+      width: 28px;
+      height: 28px;
+
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+
+  <!-- LOADING -->
+
+  <div id="loading">
+    Loading Xvsoft profile...
+  </div>
+
+
+  <!-- ERROR -->
+
+  <div id="error"></div>
+
+
+  <!-- PROFILE -->
+
+  <div
+    class="profile"
+    id="profile"
+  >
+
+    <div
+      class="banner"
+      id="banner"
+    >
+
+      <img
+        class="pfp"
+        id="pfp"
+        alt="Profile Picture"
+      >
+
+    </div>
+
+
+    <div class="content">
+
+      <h2
+        class="name"
+        id="name"
+      >
+      </h2>
+
+
+      <p
+        class="pronouns"
+        id="pronouns"
+      >
+      </p>
+
+
+      <div
+        class="about"
+        id="about"
+      >
+      </div>
+
+
+      <a
+        class="message-btn"
+        id="discord"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+
+        <img
+          src="https://i.supaimg.com/b01fa386-b822-4e99-82b1-3a1158b28e61.png"
+          alt="Discord"
+        >
+
+      </a>
+
+    </div>
+
+  </div>
+
+
+<script type="module">
+
+
+/* =====================================================
+   FIREBASE
+===================================================== */
+
+import {
+  initializeApp
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-app.js";
+
+
+import {
+  getFirestore,
+  doc,
+  getDoc
+}
+from
+"https://www.gstatic.com/firebasejs/12.18.0/firebase-firestore.js";
+
+
+/* =====================================================
+   FIREBASE CONFIG
+===================================================== */
+
+const firebaseConfig = {
+
+  apiKey:
+    "AIzaSyBvg-SmWYNMlhHc6vb1WXq89bZ_d9zXViY",
+
+  authDomain:
+    "user-27e98.firebaseapp.com",
+
+  projectId:
+    "user-27e98",
+
+  storageBucket:
+    "user-27e98.firebasestorage.app",
+
+  messagingSenderId:
+    "923349378940",
+
+  appId:
+    "1:923349378940:web:85a63660b9595e77d326f9",
+
+  measurementId:
+    "G-P4BPHG3DW7"
+};
+
+
+const app =
+  initializeApp(
+    firebaseConfig
+  );
+
+
+const db =
+  getFirestore(app);
+
+
+/* =====================================================
+   GET USER FROM URL
+=====================================================
+
+Examples:
+
+?user=Ilyce
+?user=Xv
+?user=Durante
+
+===================================================== */
+
+const params =
+  new URLSearchParams(
+    window.location.search
+  );
+
+
+const username =
+  params.get("user");
+
+
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
+const loading =
+  document.getElementById(
+    "loading"
+  );
+
+
+const error =
+  document.getElementById(
+    "error"
+  );
+
+
+const profile =
+  document.getElementById(
+    "profile"
+  );
+
+
+const name =
+  document.getElementById(
+    "name"
+  );
+
+
+const pronouns =
+  document.getElementById(
+    "pronouns"
+  );
+
+
+const about =
+  document.getElementById(
+    "about"
+  );
+
+
+const pfp =
+  document.getElementById(
+    "pfp"
+  );
+
+
+const banner =
+  document.getElementById(
+    "banner"
+  );
+
+
+const discord =
+  document.getElementById(
+    "discord"
+  );
+
+
+/* =====================================================
+   ERROR FUNCTION
+===================================================== */
+
+function showError(message) {
+
+  loading.style.display =
+    "none";
+
+  profile.style.display =
+    "none";
+
+  error.style.display =
+    "block";
+
+  error.textContent =
+    message;
+}
+
+
+/* =====================================================
+   LOAD PROFILE
+===================================================== */
+
+async function loadProfile() {
+
+
+  /* -----------------------------------------------
+     CHECK URL
+  ----------------------------------------------- */
+
+  if (!username) {
+
+    showError(
+      "No profile selected. Use ?user=Ilyce"
+    );
+
+    return;
+  }
+
+
+  try {
+
+
+    /* ---------------------------------------------
+       FIRESTORE DOCUMENT
+    --------------------------------------------- */
+
+    const profileRef =
+      doc(
+        db,
+        "profiles",
+        username
+      );
+
+
+    const snapshot =
+      await getDoc(
+        profileRef
+      );
+
+
+    /* ---------------------------------------------
+       PROFILE DOES NOT EXIST
+    --------------------------------------------- */
+
+    if (!snapshot.exists()) {
+
+      showError(
+        "Profile \"" +
+        username +
+        "\" was not found."
+      );
+
+      return;
+    }
+
+
+    /* ---------------------------------------------
+       GET DATA
+    --------------------------------------------- */
+
+    const data =
+      snapshot.data();
+
+
+    /* ---------------------------------------------
+       NAME
+    --------------------------------------------- */
+
+    name.textContent =
+      data.name ||
+      username;
+
+
+    /* ---------------------------------------------
+       PRONOUNS
+    --------------------------------------------- */
+
+    pronouns.textContent =
+      data.pronouns ||
+      "";
+
+
+    /* ---------------------------------------------
+       ABOUT
+    --------------------------------------------- */
+
+    about.textContent =
+      data.about ||
+      "";
+
+
+    /* ---------------------------------------------
+       PFP
+    --------------------------------------------- */
+
+    if (
+      data.hasPfp &&
+      data.pfp
+    ) {
+
+      pfp.src =
+        data.pfp;
+
+      pfp.style.display =
+        "block";
+
+    } else {
+
+      pfp.style.display =
+        "none";
+    }
+
+
+    /* ---------------------------------------------
+       BANNER
+    --------------------------------------------- */
+
+    if (
+      data.hasBanner &&
+      data.banner
+    ) {
+
+      banner.style.backgroundImage =
+        `url("${data.banner}")`;
+
+    } else {
+
+      banner.style.backgroundImage =
+        "none";
+    }
+
+
+    /* ---------------------------------------------
+       GRADIENT
+    --------------------------------------------- */
+
+    if (
+      data.hasGradient &&
+      data.gradient
+    ) {
+
+      profile.style.background =
+        data.gradient;
+
+    } else {
+
+      profile.style.background =
+        "linear-gradient(280deg, #EEBD89, #D13ABD)";
+    }
+
+
+    /* ---------------------------------------------
+       DISCORD BUTTON
+    --------------------------------------------- */
+
+    if (
+      data.hasDiscord &&
+      data.discordId
+    ) {
+
+      discord.href =
+        "https://discord.com/users/" +
+        data.discordId;
+
+      discord.style.display =
+        "inline-block";
+
+    } else {
+
+      discord.style.display =
+        "none";
+    }
+
+
+    /* ---------------------------------------------
+       PAGE TITLE
+    --------------------------------------------- */
+
+    document.title =
+      (data.name || username) +
+      " | Xvsoft";
+
+
+    /* ---------------------------------------------
+       SHOW PROFILE
+    --------------------------------------------- */
+
+    loading.style.display =
+      "none";
+
+    profile.style.display =
+      "block";
+
+
+  } catch (err) {
+
+    console.error(err);
+
+    showError(
+      "Firebase error: " +
+      err.message
+    );
+  }
+
+}
+
+
+/* =====================================================
+   START
+===================================================== */
+
+loadProfile();
+
+</script>
+
+</body>
+</html>
