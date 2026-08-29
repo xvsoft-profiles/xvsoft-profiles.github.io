@@ -18,11 +18,9 @@ body {
   background: #111214;
   color: white;
   font-family: Arial, sans-serif;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   padding: 18px;
 }
 
@@ -37,92 +35,15 @@ button {
   cursor: pointer;
 }
 
-#loading {
-  color: #aaa;
-  font-size: 17px;
-}
-
-#error {
-  display: none;
-
-  width: 100%;
-  max-width: 430px;
-
-  background: #1e1f22;
-  color: #ff7777;
-
-  padding: 22px;
-
-  border-radius: 20px;
-
-  text-align: center;
-
-  word-break: break-word;
-}
-
-
-/* =========================================
-   PANELS
-========================================= */
-
-.panel {
-  display: none;
-
-  width: 100%;
-  max-width: 460px;
-
-  background: #1e1f22;
-
-  border-radius: 24px;
-
-  padding: 26px;
-
-  box-shadow:
-    0 20px 60px rgba(0,0,0,.55);
-}
-
-.logo {
-  font-size: 30px;
-  font-weight: 700;
-
-  margin-bottom: 5px;
-}
-
-.subtitle {
-  color: #999;
-  line-height: 1.5;
-
-  margin-bottom: 22px;
-}
-
-label {
-  display: block;
-
-  color: #b8bbc5;
-
-  font-size: .85rem;
-
-  margin:
-    14px
-    0
-    6px;
-}
-
 input,
 textarea,
 select {
   width: 100%;
-
   border: 1px solid #3a3d45;
-
   background: #2b2d31;
-
   color: white;
-
-  padding: 11px 13px;
-
+  padding: 12px 14px;
   border-radius: 12px;
-
   outline: none;
 }
 
@@ -134,25 +55,73 @@ select:focus {
 
 textarea {
   min-height: 100px;
-
   resize: vertical;
 }
 
+label {
+  display: block;
+  color: #b8bbc5;
+  font-size: .85rem;
+  margin: 15px 0 6px;
+}
+
+#loading {
+  color: #aaa;
+  font-size: 17px;
+}
+
+#error {
+  display: none;
+  width: 100%;
+  max-width: 430px;
+  background: #1e1f22;
+  color: #ff7777;
+  padding: 22px;
+  border-radius: 20px;
+  text-align: center;
+  word-break: break-word;
+}
+
+
+/* ================================
+   PANELS
+================================ */
+
+.panel {
+  display: none;
+  width: 100%;
+  max-width: 460px;
+  background: #1e1f22;
+  border-radius: 24px;
+  padding: 26px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.55);
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 5px;
+}
+
+.subtitle {
+  color: #999;
+  line-height: 1.5;
+  margin-bottom: 22px;
+}
+
+
+/* ================================
+   BUTTONS
+================================ */
+
 .primary {
   width: 100%;
-
   border: 0;
-
   background: #5865F2;
-
   color: white;
-
   padding: 13px;
-
   border-radius: 30px;
-
   font-weight: 600;
-
   margin-top: 20px;
 }
 
@@ -162,110 +131,135 @@ textarea {
 
 .primary:disabled {
   opacity: .6;
-
   cursor: wait;
 }
 
 .secondary {
   width: 100%;
-
   border: 0;
-
   background: #3a3d45;
-
   color: white;
-
   padding: 13px;
-
   border-radius: 30px;
-
   font-weight: 600;
-
   margin-top: 10px;
 }
 
-.small-error {
-  color: #ff7777;
 
-  font-size: .85rem;
-
-  margin-top: 10px;
-
-  min-height: 18px;
-}
-
-
-/* =========================================
+/* ================================
    AUTH
-========================================= */
+================================ */
 
 .tabs {
   display: flex;
-
   gap: 5px;
-
   padding: 4px;
-
   background: #151619;
-
   border-radius: 14px;
-
   margin-bottom: 20px;
 }
 
 .tabs button {
   flex: 1;
-
   border: 0;
-
   background: transparent;
-
   color: #999;
-
   padding: 10px;
-
   border-radius: 10px;
-
   font-weight: 600;
 }
 
 .tabs button.active {
   background: #5865F2;
-
   color: white;
 }
 
+.small-error {
+  color: #ff7777;
+  font-size: .85rem;
+  margin-top: 10px;
+  min-height: 18px;
+}
 
-/* =========================================
+
+/* ================================
+   PREVIEWS
+================================ */
+
+.preview-pfp {
+  display: none;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 14px auto;
+}
+
+.preview-banner {
+  display: none;
+  width: 100%;
+  height: 150px;
+  margin-top: 12px;
+  border-radius: 14px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #111214;
+  border: 1px solid #3a3d45;
+}
+
+.url-help {
+  color: #777;
+  font-size: .75rem;
+  margin-top: 5px;
+  line-height: 1.4;
+}
+
+
+/* ================================
+   GRADIENT
+================================ */
+
+.color-row {
+  display: flex;
+  gap: 10px;
+}
+
+.color-input {
+  width: 55px;
+  height: 45px;
+  padding: 3px;
+}
+
+.gradient-preview {
+  width: 100%;
+  height: 75px;
+  border-radius: 14px;
+  margin-top: 12px;
+  border: 1px solid #3a3d45;
+}
+
+
+/* ================================
    PROFILE
-========================================= */
+================================ */
 
 .profile {
   display: none;
-
   width: 100%;
-
   max-width: 400px;
-
   border-radius: 24px;
-
   overflow: hidden;
-
   text-align: center;
-
-  box-shadow:
-    0 15px 40px rgba(0,0,0,.55);
+  box-shadow: 0 15px 40px rgba(0,0,0,.55);
 }
 
 .banner {
   height: 0;
-
-  background:
-    none
-    center / cover
-    no-repeat;
-
   position: relative;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .banner.has-banner {
@@ -275,50 +269,32 @@ textarea {
 .pfp {
   width: 110px;
   height: 110px;
-
   border-radius: 50%;
-
   border: 5px solid #1e1f22;
-
   position: absolute;
-
   left: 50%;
-
   bottom: -55px;
-
-  transform:
-    translateX(-50%);
-
+  transform: translateX(-50%);
   background: #2b2d31;
-
   object-fit: cover;
 }
 
 .banner:not(.has-banner) .pfp {
   top: 20px;
-
   bottom: auto;
 }
 
 .content {
-  padding:
-    70px
-    20px
-    25px;
+  padding: 70px 20px 25px;
 }
 
-.banner:not(.has-banner)
-+ .content {
-
-  padding-top:
-    145px;
+.banner:not(.has-banner) + .content {
+  padding-top: 145px;
 }
 
 .name {
   font-size: 1.7rem;
-
   font-weight: 600;
-
   margin-bottom: 5px;
 }
 
@@ -327,42 +303,24 @@ textarea {
 }
 
 .about {
-  background:
-    rgba(0,0,0,.25);
-
-  backdrop-filter:
-    blur(30px);
-
+  background: rgba(0,0,0,.25);
+  backdrop-filter: blur(30px);
   border-radius: 16px;
-
-  padding:
-    12px
-    16px;
-
+  padding: 12px 16px;
   font-size: .9rem;
-
   line-height: 1.6;
-
   text-align: left;
-
   white-space: pre-line;
-
   word-break: break-word;
 }
 
 .message-btn {
   display: inline-block;
-
   margin-top: 18px;
-
   padding: 14px;
-
   border-radius: 50%;
-
   background: #5865F2;
-
-  transition:
-    transform .15s;
+  transition: transform .15s;
 }
 
 .message-btn:hover {
@@ -372,89 +330,49 @@ textarea {
 .message-btn img {
   width: 28px;
   height: 28px;
-
   display: block;
 }
 
 
-/* =========================================
-   EDIT BUTTON
-========================================= */
+/* ================================
+   EDIT
+================================ */
 
 #editBtn {
   display: none;
-
   position: fixed;
-
   top: 16px;
   right: 16px;
-
   z-index: 50;
-
-  border:
-    1px solid
-    #4e5058;
-
-  background:
-    rgba(30,31,34,.92);
-
+  border: 1px solid #4e5058;
+  background: rgba(30,31,34,.92);
   color: white;
-
-  padding:
-    9px
-    17px;
-
+  padding: 9px 17px;
   border-radius: 30px;
-
-  backdrop-filter:
-    blur(10px);
+  backdrop-filter: blur(10px);
 }
-
-
-/* =========================================
-   EDIT MODAL
-========================================= */
 
 #editModal {
   display: none;
-
   position: fixed;
-
   inset: 0;
-
   z-index: 100;
-
-  background:
-    rgba(0,0,0,.72);
-
-  backdrop-filter:
-    blur(8px);
-
+  background: rgba(0,0,0,.72);
+  backdrop-filter: blur(8px);
   justify-content: center;
-
   align-items: center;
-
   padding: 18px;
 }
 
 .modal-box {
   width: 100%;
-
   max-width: 470px;
-
   max-height: 90vh;
-
   overflow-y: auto;
-
   background: #1e1f22;
-
   border-radius: 22px;
-
   padding: 24px;
-
-  box-shadow:
-    0 20px 50px
-    rgba(0,0,0,.8);
+  box-shadow: 0 20px 50px rgba(0,0,0,.8);
 }
 
 .modal-box h2 {
@@ -463,157 +381,44 @@ textarea {
 
 .actions {
   display: flex;
-
   gap: 10px;
-
   margin-top: 20px;
 }
 
 .actions button {
   flex: 1;
-
   border: 0;
-
   padding: 12px;
-
   border-radius: 30px;
-
   font-weight: 600;
 }
 
 .save {
   background: #5865F2;
-
   color: white;
 }
 
 .cancel {
   background: #3a3d45;
-
   color: white;
-}
-
-
-/* =========================================
-   PREVIEWS
-========================================= */
-
-.preview-banner {
-  display: none;
-
-  width: 100%;
-
-  height: 150px;
-
-  margin-top: 12px;
-
-  border-radius: 14px;
-
-  background:
-    center / cover
-    no-repeat;
-
-  background-color:
-    #111214;
-
-  border:
-    1px solid
-    #3a3d45;
-}
-
-.preview-pfp {
-  display: none;
-
-  width: 100px;
-  height: 100px;
-
-  border-radius: 50%;
-
-  object-fit: cover;
-
-  margin:
-    12px
-    auto;
-}
-
-
-/* =========================================
-   GRADIENT
-========================================= */
-
-.color-row {
-  display: flex;
-
-  gap: 10px;
-
-  margin-bottom: 10px;
-}
-
-.color-input {
-  height: 45px;
-
-  padding: 3px;
-}
-
-.gradient-preview {
-  width: 100%;
-
-  height: 75px;
-
-  border-radius: 14px;
-
-  margin-top: 12px;
-
-  border:
-    1px solid
-    #3a3d45;
-}
-
-
-/* =========================================
-   URL HELP
-========================================= */
-
-.url-help {
-  color: #777;
-
-  font-size: .75rem;
-
-  margin-top: 5px;
-
-  line-height: 1.4;
 }
 </style>
 </head>
 
-
 <body>
-
-
-<!-- =========================================
-     LOADING
-========================================= -->
 
 <div id="loading">
   Loading Xvsoft...
 </div>
 
-
-<!-- =========================================
-     ERROR
-========================================= -->
-
 <div id="error"></div>
 
 
-<!-- =========================================
-     AUTH PAGE
-========================================= -->
+<!-- ================================
+     LOGIN / REGISTER
+================================ -->
 
-<div
-  id="authPage"
-  class="panel"
->
+<div id="authPage" class="panel">
 
   <div class="logo">
     Xvsoft
@@ -623,32 +428,22 @@ textarea {
     Sign in or create your Xvsoft account.
   </div>
 
-
   <div class="tabs">
 
-    <button
-      id="loginTab"
-      class="active"
-    >
+    <button id="loginTab" class="active">
       Login
     </button>
 
-    <button
-      id="registerTab"
-    >
+    <button id="registerTab">
       Create Account
     </button>
 
   </div>
 
 
-  <!-- LOGIN -->
-
   <div id="loginForm">
 
-    <label>
-      Email
-    </label>
+    <label>Email</label>
 
     <input
       id="loginEmail"
@@ -657,10 +452,7 @@ textarea {
       placeholder="you@example.com"
     >
 
-
-    <label>
-      Password
-    </label>
+    <label>Password</label>
 
     <input
       id="loginPassword"
@@ -669,27 +461,16 @@ textarea {
       placeholder="Password"
     >
 
-
-    <button
-      id="loginBtn"
-      class="primary"
-    >
+    <button id="loginBtn" class="primary">
       Sign In
     </button>
 
   </div>
 
 
-  <!-- REGISTER -->
+  <div id="registerForm" style="display:none">
 
-  <div
-    id="registerForm"
-    style="display:none"
-  >
-
-    <label>
-      Email
-    </label>
+    <label>Email</label>
 
     <input
       id="registerEmail"
@@ -698,10 +479,7 @@ textarea {
       placeholder="you@example.com"
     >
 
-
-    <label>
-      Password
-    </label>
+    <label>Password</label>
 
     <input
       id="registerPassword"
@@ -710,33 +488,22 @@ textarea {
       placeholder="At least 6 characters"
     >
 
-
-    <button
-      id="registerBtn"
-      class="primary"
-    >
+    <button id="registerBtn" class="primary">
       Create Account
     </button>
 
   </div>
 
-
-  <div
-    id="authMessage"
-    class="small-error"
-  ></div>
+  <div id="authMessage" class="small-error"></div>
 
 </div>
 
 
-<!-- =========================================
+<!-- ================================
      CREATE PROFILE
-========================================= -->
+================================ -->
 
-<div
-  id="createPage"
-  class="panel"
->
+<div id="createPage" class="panel">
 
   <div class="logo">
     Create Profile
@@ -747,9 +514,7 @@ textarea {
   </div>
 
 
-  <label>
-    Username
-  </label>
+  <label>Username</label>
 
   <input
     id="newUsername"
@@ -758,9 +523,7 @@ textarea {
   >
 
 
-  <label>
-    Display Name
-  </label>
+  <label>Display Name</label>
 
   <input
     id="newName"
@@ -769,19 +532,15 @@ textarea {
   >
 
 
-  <label>
-    Pronouns
-  </label>
+  <label>Pronouns</label>
 
   <input
     id="newPronouns"
-    placeholder="he/him"
+    placeholder="Optional"
   >
 
 
-  <label>
-    About
-  </label>
+  <label>About</label>
 
   <textarea
     id="newAbout"
@@ -789,11 +548,7 @@ textarea {
   ></textarea>
 
 
-  <!-- GRADIENT -->
-
-  <label>
-    Gradient
-  </label>
+  <label>Gradient</label>
 
   <div class="color-row">
 
@@ -841,7 +596,7 @@ textarea {
   ></div>
 
 
-  <!-- PFP -->
+  <!-- PFP URL ONLY -->
 
   <label>
     Profile Picture URL
@@ -854,9 +609,8 @@ textarea {
   >
 
   <div class="url-help">
-    PNG, JPG, WEBP, GIF and other browser-supported image URLs.
+    Paste a direct image URL.
   </div>
-
 
   <img
     id="newPfpPreview"
@@ -865,7 +619,7 @@ textarea {
   >
 
 
-  <!-- BANNER -->
+  <!-- BANNER URL ONLY -->
 
   <label>
     Banner URL
@@ -878,17 +632,14 @@ textarea {
   >
 
   <div class="url-help">
-    GIF banners are supported and remain animated.
+    GIF banners are supported.
   </div>
-
 
   <div
     id="newBannerPreview"
     class="preview-banner"
   ></div>
 
-
-  <!-- DISCORD -->
 
   <label>
     Discord ID
@@ -900,10 +651,7 @@ textarea {
   >
 
 
-  <div
-    id="createError"
-    class="small-error"
-  ></div>
+  <div id="createError" class="small-error"></div>
 
 
   <button
@@ -924,19 +672,13 @@ textarea {
 </div>
 
 
-<!-- =========================================
+<!-- ================================
      PROFILE
-========================================= -->
+================================ -->
 
-<div
-  id="profile"
-  class="profile"
->
+<div id="profile" class="profile">
 
-  <div
-    id="banner"
-    class="banner"
-  >
+  <div id="banner" class="banner">
 
     <img
       id="pfp"
@@ -949,23 +691,11 @@ textarea {
 
   <div class="content">
 
-    <h2
-      id="name"
-      class="name"
-    ></h2>
+    <h2 id="name" class="name"></h2>
 
+    <p id="pronouns" class="pronouns"></p>
 
-    <p
-      id="pronouns"
-      class="pronouns"
-    ></p>
-
-
-    <div
-      id="about"
-      class="about"
-    ></div>
-
+    <div id="about" class="about"></div>
 
     <a
       id="discord"
@@ -986,24 +716,16 @@ textarea {
 </div>
 
 
-<!-- =========================================
-     EDIT BUTTON
-========================================= -->
-
-<button
-  id="editBtn"
->
+<button id="editBtn">
   ✎ Edit Profile
 </button>
 
 
-<!-- =========================================
+<!-- ================================
      EDIT MODAL
-========================================= -->
+================================ -->
 
-<div
-  id="editModal"
->
+<div id="editModal">
 
   <div class="modal-box">
 
@@ -1012,9 +734,7 @@ textarea {
     </h2>
 
 
-    <label>
-      Username
-    </label>
+    <label>Username</label>
 
     <input
       id="editUsername"
@@ -1022,9 +742,7 @@ textarea {
     >
 
 
-    <label>
-      Display Name
-    </label>
+    <label>Display Name</label>
 
     <input
       id="editName"
@@ -1032,29 +750,17 @@ textarea {
     >
 
 
-    <label>
-      Pronouns
-    </label>
+    <label>Pronouns</label>
 
-    <input
-      id="editPronouns"
-    >
+    <input id="editPronouns">
 
 
-    <label>
-      About
-    </label>
+    <label>About</label>
 
-    <textarea
-      id="editAbout"
-    ></textarea>
+    <textarea id="editAbout"></textarea>
 
 
-    <!-- GRADIENT -->
-
-    <label>
-      Gradient
-    </label>
+    <label>Gradient</label>
 
     <div class="color-row">
 
@@ -1062,12 +768,14 @@ textarea {
         id="editColor1"
         class="color-input"
         type="color"
+        value="#EEBD89"
       >
 
       <input
         id="editColor2"
         class="color-input"
         type="color"
+        value="#D13ABD"
       >
 
     </div>
@@ -1100,7 +808,7 @@ textarea {
     ></div>
 
 
-    <!-- PFP -->
+    <!-- EDIT PFP URL -->
 
     <label>
       Profile Picture URL
@@ -1112,7 +820,6 @@ textarea {
       placeholder="https://example.com/pfp.png"
     >
 
-
     <img
       id="editPfpPreview"
       class="preview-pfp"
@@ -1120,7 +827,7 @@ textarea {
     >
 
 
-    <!-- BANNER -->
+    <!-- EDIT BANNER URL -->
 
     <label>
       Banner URL
@@ -1132,7 +839,6 @@ textarea {
       placeholder="https://example.com/banner.gif"
     >
 
-
     <div
       id="editBannerPreview"
       class="preview-banner"
@@ -1143,9 +849,7 @@ textarea {
       Discord ID
     </label>
 
-    <input
-      id="editDiscord"
-    >
+    <input id="editDiscord">
 
 
     <div class="actions">
@@ -1173,9 +877,8 @@ textarea {
 
 <script type="module">
 
-
 /* =========================================
-   FIREBASE
+   FIREBASE IMPORTS
 ========================================= */
 
 import {
@@ -1209,7 +912,7 @@ from
 
 
 /* =========================================
-   CONFIG
+   FIREBASE CONFIG
 ========================================= */
 
 const firebaseConfig = {
@@ -1273,39 +976,25 @@ const requestedUsername =
 ========================================= */
 
 const loading =
-  document.getElementById(
-    "loading"
-  );
+  document.getElementById("loading");
 
 const errorBox =
-  document.getElementById(
-    "error"
-  );
+  document.getElementById("error");
 
 const authPage =
-  document.getElementById(
-    "authPage"
-  );
+  document.getElementById("authPage");
 
 const createPage =
-  document.getElementById(
-    "createPage"
-  );
+  document.getElementById("createPage");
 
 const profile =
-  document.getElementById(
-    "profile"
-  );
+  document.getElementById("profile");
 
 const editBtn =
-  document.getElementById(
-    "editBtn"
-  );
+  document.getElementById("editBtn");
 
 const editModal =
-  document.getElementById(
-    "editModal"
-  );
+  document.getElementById("editModal");
 
 
 /* =========================================
@@ -1339,9 +1028,7 @@ function hideEverything() {
    ERROR
 ========================================= */
 
-function showError(
-  message
-) {
+function showError(message) {
 
   hideEverything();
 
@@ -1364,15 +1051,7 @@ function makeGradient(
   direction
 ) {
 
-  return (
-    "linear-gradient(" +
-    direction +
-    ", " +
-    color1 +
-    ", " +
-    color2 +
-    ")"
-  );
+  return `linear-gradient(${direction}, ${color1}, ${color2})`;
 
 }
 
@@ -1402,250 +1081,107 @@ function updateEditGradient() {
 
 
 /* =========================================
-   ELEMENT REFERENCES
+   CREATE ELEMENTS
 ========================================= */
 
 const newUsername =
-  document.getElementById(
-    "newUsername"
-  );
+  document.getElementById("newUsername");
 
 const newName =
-  document.getElementById(
-    "newName"
-  );
+  document.getElementById("newName");
 
 const newPronouns =
-  document.getElementById(
-    "newPronouns"
-  );
+  document.getElementById("newPronouns");
 
 const newAbout =
-  document.getElementById(
-    "newAbout"
-  );
+  document.getElementById("newAbout");
 
 const newColor1 =
-  document.getElementById(
-    "newColor1"
-  );
+  document.getElementById("newColor1");
 
 const newColor2 =
-  document.getElementById(
-    "newColor2"
-  );
+  document.getElementById("newColor2");
 
 const newDirection =
-  document.getElementById(
-    "newDirection"
-  );
+  document.getElementById("newDirection");
 
 const newGradientPreview =
-  document.getElementById(
-    "newGradientPreview"
-  );
+  document.getElementById("newGradientPreview");
 
 const newPfpUrl =
-  document.getElementById(
-    "newPfpUrl"
-  );
+  document.getElementById("newPfpUrl");
 
 const newPfpPreview =
-  document.getElementById(
-    "newPfpPreview"
-  );
+  document.getElementById("newPfpPreview");
 
 const newBannerUrl =
-  document.getElementById(
-    "newBannerUrl"
-  );
+  document.getElementById("newBannerUrl");
 
 const newBannerPreview =
-  document.getElementById(
-    "newBannerPreview"
-  );
+  document.getElementById("newBannerPreview");
 
 const newDiscord =
-  document.getElementById(
-    "newDiscord"
-  );
+  document.getElementById("newDiscord");
 
 const createError =
-  document.getElementById(
-    "createError"
-  );
+  document.getElementById("createError");
 
 const createProfileBtn =
-  document.getElementById(
-    "createProfileBtn"
-  );
-
-
-const loginTab =
-  document.getElementById(
-    "loginTab"
-  );
-
-const registerTab =
-  document.getElementById(
-    "registerTab"
-  );
-
-const loginForm =
-  document.getElementById(
-    "loginForm"
-  );
-
-const registerForm =
-  document.getElementById(
-    "registerForm"
-  );
-
-const loginEmail =
-  document.getElementById(
-    "loginEmail"
-  );
-
-const loginPassword =
-  document.getElementById(
-    "loginPassword"
-  );
-
-const loginBtn =
-  document.getElementById(
-    "loginBtn"
-  );
-
-const registerEmail =
-  document.getElementById(
-    "registerEmail"
-  );
-
-const registerPassword =
-  document.getElementById(
-    "registerPassword"
-  );
-
-const registerBtn =
-  document.getElementById(
-    "registerBtn"
-  );
-
-const authMessage =
-  document.getElementById(
-    "authMessage"
-  );
-
-
-const banner =
-  document.getElementById(
-    "banner"
-  );
-
-const pfp =
-  document.getElementById(
-    "pfp"
-  );
-
-const nameElement =
-  document.getElementById(
-    "name"
-  );
-
-const pronouns =
-  document.getElementById(
-    "pronouns"
-  );
-
-const about =
-  document.getElementById(
-    "about"
-  );
-
-const discord =
-  document.getElementById(
-    "discord"
-  );
-
-
-const editUsername =
-  document.getElementById(
-    "editUsername"
-  );
-
-const editName =
-  document.getElementById(
-    "editName"
-  );
-
-const editPronouns =
-  document.getElementById(
-    "editPronouns"
-  );
-
-const editAbout =
-  document.getElementById(
-    "editAbout"
-  );
-
-const editColor1 =
-  document.getElementById(
-    "editColor1"
-  );
-
-const editColor2 =
-  document.getElementById(
-    "editColor2"
-  );
-
-const editDirection =
-  document.getElementById(
-    "editDirection"
-  );
-
-const editGradientPreview =
-  document.getElementById(
-    "editGradientPreview"
-  );
-
-const editPfpUrl =
-  document.getElementById(
-    "editPfpUrl"
-  );
-
-const editPfpPreview =
-  document.getElementById(
-    "editPfpPreview"
-  );
-
-const editBannerUrl =
-  document.getElementById(
-    "editBannerUrl"
-  );
-
-const editBannerPreview =
-  document.getElementById(
-    "editBannerPreview"
-  );
-
-const editDiscord =
-  document.getElementById(
-    "editDiscord"
-  );
-
-const saveEdit =
-  document.getElementById(
-    "saveEdit"
-  );
-
-const cancelEdit =
-  document.getElementById(
-    "cancelEdit"
-  );
+  document.getElementById("createProfileBtn");
 
 
 /* =========================================
-   IMAGE URL PREVIEWS
+   EDIT ELEMENTS
+========================================= */
+
+const editUsername =
+  document.getElementById("editUsername");
+
+const editName =
+  document.getElementById("editName");
+
+const editPronouns =
+  document.getElementById("editPronouns");
+
+const editAbout =
+  document.getElementById("editAbout");
+
+const editColor1 =
+  document.getElementById("editColor1");
+
+const editColor2 =
+  document.getElementById("editColor2");
+
+const editDirection =
+  document.getElementById("editDirection");
+
+const editGradientPreview =
+  document.getElementById("editGradientPreview");
+
+const editPfpUrl =
+  document.getElementById("editPfpUrl");
+
+const editPfpPreview =
+  document.getElementById("editPfpPreview");
+
+const editBannerUrl =
+  document.getElementById("editBannerUrl");
+
+const editBannerPreview =
+  document.getElementById("editBannerPreview");
+
+const editDiscord =
+  document.getElementById("editDiscord");
+
+const saveEdit =
+  document.getElementById("saveEdit");
+
+const cancelEdit =
+  document.getElementById("cancelEdit");
+
+
+/* =========================================
+   CREATE PFP PREVIEW
 ========================================= */
 
 newPfpUrl.addEventListener(
@@ -1661,9 +1197,7 @@ newPfpUrl.addEventListener(
       newPfpPreview.style.display =
         "none";
 
-      newPfpPreview.removeAttribute(
-        "src"
-      );
+      newPfpPreview.removeAttribute("src");
 
       return;
 
@@ -1679,6 +1213,10 @@ newPfpUrl.addEventListener(
   }
 );
 
+
+/* =========================================
+   CREATE BANNER PREVIEW
+========================================= */
 
 newBannerUrl.addEventListener(
   "input",
@@ -1711,6 +1249,10 @@ newBannerUrl.addEventListener(
 );
 
 
+/* =========================================
+   EDIT PFP PREVIEW
+========================================= */
+
 editPfpUrl.addEventListener(
   "input",
   () => {
@@ -1724,9 +1266,7 @@ editPfpUrl.addEventListener(
       editPfpPreview.style.display =
         "none";
 
-      editPfpPreview.removeAttribute(
-        "src"
-      );
+      editPfpPreview.removeAttribute("src");
 
       return;
 
@@ -1742,6 +1282,10 @@ editPfpUrl.addEventListener(
   }
 );
 
+
+/* =========================================
+   EDIT BANNER PREVIEW
+========================================= */
 
 editBannerUrl.addEventListener(
   "input",
@@ -1815,26 +1359,32 @@ updateNewGradient();
    AUTH TABS
 ========================================= */
 
+const loginTab =
+  document.getElementById("loginTab");
+
+const registerTab =
+  document.getElementById("registerTab");
+
+const loginForm =
+  document.getElementById("loginForm");
+
+const registerForm =
+  document.getElementById("registerForm");
+
+
 loginTab.addEventListener(
   "click",
   () => {
 
-    loginTab.classList.add(
-      "active"
-    );
+    loginTab.classList.add("active");
 
-    registerTab.classList.remove(
-      "active"
-    );
+    registerTab.classList.remove("active");
 
     loginForm.style.display =
       "block";
 
     registerForm.style.display =
       "none";
-
-    authMessage.textContent =
-      "";
 
   }
 );
@@ -1844,13 +1394,9 @@ registerTab.addEventListener(
   "click",
   () => {
 
-    registerTab.classList.add(
-      "active"
-    );
+    registerTab.classList.add("active");
 
-    loginTab.classList.remove(
-      "active"
-    );
+    loginTab.classList.remove("active");
 
     loginForm.style.display =
       "none";
@@ -1858,20 +1404,37 @@ registerTab.addEventListener(
     registerForm.style.display =
       "block";
 
-    authMessage.textContent =
-      "";
-
   }
 );
 
 
 /* =========================================
-   AUTH ERRORS
+   AUTH
 ========================================= */
 
-function authErrorMessage(
-  code
-) {
+const loginEmail =
+  document.getElementById("loginEmail");
+
+const loginPassword =
+  document.getElementById("loginPassword");
+
+const loginBtn =
+  document.getElementById("loginBtn");
+
+const registerEmail =
+  document.getElementById("registerEmail");
+
+const registerPassword =
+  document.getElementById("registerPassword");
+
+const registerBtn =
+  document.getElementById("registerBtn");
+
+const authMessage =
+  document.getElementById("authMessage");
+
+
+function authErrorMessage(code) {
 
   switch(code) {
 
@@ -2077,56 +1640,6 @@ createProfileBtn.addEventListener(
         );
 
 
-      /*
-        Check whether the username
-        already exists.
-      */
-
-      const profileCheck =
-        await getDoc(
-          profileRef
-        );
-
-
-      if (
-        profileCheck.exists()
-      ) {
-
-        throw new Error(
-          "USERNAME_TAKEN"
-        );
-
-      }
-
-
-      /*
-        Check whether this Firebase
-        account already owns a profile.
-      */
-
-      const userCheck =
-        await getDoc(
-          userRef
-        );
-
-
-      if (
-        userCheck.exists() &&
-        userCheck.data().username
-      ) {
-
-        throw new Error(
-          "PROFILE_EXISTS"
-        );
-
-      }
-
-
-      /*
-        Save profile.
-        Images are simply URLs.
-      */
-
       await runTransaction(
         db,
         async transaction => {
@@ -2192,8 +1705,17 @@ createProfileBtn.addEventListener(
               discordId:
                 newDiscord.value.trim(),
 
+              /*
+                URL ONLY
+              */
+
               pfp:
                 newPfpUrl.value.trim(),
+
+              /*
+                URL ONLY
+                GIFs work normally.
+              */
 
               banner:
                 newBannerUrl.value.trim()
@@ -2215,10 +1737,6 @@ createProfileBtn.addEventListener(
         }
       );
 
-
-      /*
-        SUCCESS
-      */
 
       createProfileBtn.textContent =
         "Account saved ✓";
@@ -2314,9 +1832,7 @@ async function loadProfile(
     if (!snapshot.exists()) {
 
       showError(
-        'Profile "' +
-        username +
-        '" was not found.'
+        `Profile "${username}" was not found.`
       );
 
       return;
@@ -2333,19 +1849,19 @@ async function loadProfile(
       username;
 
 
-    pronouns.textContent =
+    pronounsElement.textContent =
       data.pronouns ||
       "";
 
 
-    about.textContent =
+    aboutElement.textContent =
       data.about ||
       "";
 
 
-    /*
-      PFP
-    */
+    /* ================================
+       PFP URL
+    ================================= */
 
     if (data.pfp) {
 
@@ -2363,9 +1879,9 @@ async function loadProfile(
     }
 
 
-    /*
-      BANNER
-    */
+    /* ================================
+       BANNER URL
+    ================================= */
 
     if (data.banner) {
 
@@ -2388,18 +1904,18 @@ async function loadProfile(
     }
 
 
-    /*
-      GRADIENT
-    */
+    /* ================================
+       GRADIENT
+    ================================= */
 
     profile.style.background =
       data.gradient ||
       "linear-gradient(280deg,#EEBD89,#D13ABD)";
 
 
-    /*
-      DISCORD
-    */
+    /* ================================
+       DISCORD
+    ================================= */
 
     if (data.discordId) {
 
@@ -2429,9 +1945,9 @@ async function loadProfile(
       "block";
 
 
-    /*
-      OWNER CHECK
-    */
+    /* ================================
+       OWNER
+    ================================= */
 
     if (
       currentUser &&
@@ -2461,6 +1977,29 @@ async function loadProfile(
   }
 
 }
+
+
+/* =========================================
+   PROFILE ELEMENTS
+========================================= */
+
+const nameElement =
+  document.getElementById("name");
+
+const pronounsElement =
+  document.getElementById("pronouns");
+
+const aboutElement =
+  document.getElementById("about");
+
+const pfp =
+  document.getElementById("pfp");
+
+const banner =
+  document.getElementById("banner");
+
+const discord =
+  document.getElementById("discord");
 
 
 /* =========================================
@@ -2503,9 +2042,8 @@ function prepareEditor(
 
 
   /*
-    Default colors.
-    Existing gradient is preserved
-    in the profile itself.
+    These are the picker defaults.
+    The stored gradient itself is preserved.
   */
 
   editColor1.value =
@@ -2621,13 +2159,13 @@ saveEdit.addEventListener(
         );
 
 
-      const current =
+      const snapshot =
         await getDoc(
           profileRef
         );
 
 
-      if (!current.exists()) {
+      if (!snapshot.exists()) {
 
         throw new Error(
           "Profile no longer exists."
@@ -2636,16 +2174,12 @@ saveEdit.addEventListener(
       }
 
 
-      const currentData =
-        current.data();
+      const data =
+        snapshot.data();
 
-
-      /*
-        Owner security check.
-      */
 
       if (
-        currentData.ownerUid !==
+        data.ownerUid !==
         user.uid
       ) {
 
@@ -2656,39 +2190,45 @@ saveEdit.addEventListener(
       }
 
 
-      const updates = {
-
-        name:
-          editName.value.trim(),
-
-        pronouns:
-          editPronouns.value.trim(),
-
-        about:
-          editAbout.value,
-
-        gradient:
-          makeGradient(
-            editColor1.value,
-            editColor2.value,
-            editDirection.value
-          ),
-
-        discordId:
-          editDiscord.value.trim(),
-
-        pfp:
-          editPfpUrl.value.trim(),
-
-        banner:
-          editBannerUrl.value.trim()
-
-      };
-
-
       await setDoc(
         profileRef,
-        updates,
+        {
+
+          name:
+            editName.value.trim(),
+
+          pronouns:
+            editPronouns.value.trim(),
+
+          about:
+            editAbout.value,
+
+          gradient:
+            makeGradient(
+              editColor1.value,
+              editColor2.value,
+              editDirection.value
+            ),
+
+          discordId:
+            editDiscord.value.trim(),
+
+          /*
+            URL ONLY
+          */
+
+          pfp:
+            editPfpUrl.value.trim(),
+
+          /*
+            URL ONLY
+            GIFs remain animated.
+          */
+
+          banner:
+            editBannerUrl.value.trim()
+
+        },
         {
           merge: true
         }
@@ -2733,9 +2273,7 @@ saveEdit.addEventListener(
 ========================================= */
 
 document
-  .getElementById(
-    "createSignOutBtn"
-  )
+  .getElementById("createSignOutBtn")
   .addEventListener(
     "click",
     async () => {
@@ -2760,8 +2298,7 @@ onAuthStateChanged(
   async user => {
 
     /*
-      If a profile is explicitly
-      requested, load it.
+      A profile was explicitly requested.
     */
 
     if (requestedUsername) {
@@ -2794,8 +2331,7 @@ onAuthStateChanged(
 
     /*
       Logged in.
-      Check whether they have
-      an Xvsoft profile.
+      Find their Xvsoft profile.
     */
 
     try {
